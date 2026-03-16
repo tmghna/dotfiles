@@ -1,0 +1,49 @@
+Config { font = "xft:JetBrainsMono Nerd Font:size=11:antialias=true"
+       , additionalFonts = ["xft:Font Awesome 6 Free:style=Solid:size=11"]
+       , bgColor = "#1e1e2e" -- Minimal dark background
+       , fgColor = "#cdd6f4" -- Default text color
+       , position = TopSize L 100 30
+       , sepChar = "%"
+       , alignSep = "}{"
+       
+       -- The Layout Template
+       , template = "  <fc=#ff4a5a></fc>	%StdinReader% }{ <fc=#cba6f7><fn=1></fn> cpu: (%cpu%)</fc> | <fc=#89b4fa><fn=1></fn> mem: (%memory%)</fc> | <fc=#f9e2af><fn=1></fn> nits: (%bright%)</fc> | <fc=#fab387><fn=1></fn> vol: (%volume%)</fc> | <fc=#a6e3a1><fn=1></fn> strength: (%wifi%)</fc> | %battery% | <fc=#b4befe> %date%</fc> "
+       
+       , commands =
+            [ 
+              -- CPU & Memory
+              Run Cpu ["-t", "<total>%"] 50
+            , Run Memory ["-t", "<usedratio>%"] 20
+            
+              -- Brightness
+            , Run Com "bash" ["-c", "brightnessctl -m | cut -d, -f4"] "bright" 1
+            
+              -- Volume (Using wpctl)
+            , Run Com "bash" ["-c", "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{if ($3 == \"[MUTED]\") print \"Muted\"; else print int($2 * 100) \"%\"}'"] "volume" 1
+            
+	      -- WiFi (Using NetworkManager bypass instead of the broken Wireless plugin)
+            , Run Com "bash" ["-c", "nmcli -t -f active,signal dev wifi | awk -F: '/^yes/ {print $2\"%\"}'"] "wifi" 50
+            
+              -- Battery (REPLACE "BAT1" IF IT IS DIFFERENT)
+            , Run BatteryP ["BAT1"]
+                [ "-t", "<acstatus><left>%"
+	        -- Thresholds and their colors MUST go before the '--'
+                , "-H", "70", "-L", "30"          
+                , "-h", "#a6e3a1"                 -- High: Green
+                , "-n", "#f9e2af"                 -- Mid: Yellow
+                , "-l", "#f38ba8"                 -- Low: Red
+                , "--"
+                
+                , "-O", "<fc=#89b4fa><fn=1></fn> </fc>"    
+                , "-i", "<fc=#a6e3a1><fn=1></fn> </fc>"       
+                
+                , "-o", "<fn=1></fn> "
+                ] 20
+                
+              -- Date & Time Format
+            , Run Date "%a %d/%m/%Y %H:%M:%S" "date" 10
+            
+              -- Reads Xmonad Layout
+            , Run StdinReader
+            ]
+       }

@@ -1,0 +1,83 @@
+configuration {
+    display-clipboard: "📋 ";
+}
+
+* {
+    bg: #1e1e2e;
+    bg-alt: #313244;
+    fg: #cdd6f4;
+    accent: "#cba6f7";
+    
+    background-color: transparent;
+    text-color: @fg;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    width: 600px;
+    background-color: @bg;
+    border: 2px solid;
+    border-color: @accent;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+mainbox {
+    spacing: 20px;
+}
+
+inputbar {
+    background-color: @bg-alt;
+    border-radius: 6px;
+    padding: 12px 20px;
+    spacing: 15px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @accent;
+    font: "JetBrainsMono Nerd Font 14";
+    vertical-align: 0.5;
+}
+
+entry {
+    placeholder: "Search Clipboard History...";
+    placeholder-color: #a6adc8;
+    text-color: @fg;
+    vertical-align: 0.5;
+}
+
+listview {
+    columns: 1;          /* Single column list */
+    lines: 8;            /* Shows 8 copied items at once */
+    spacing: 5px;
+    fixed-height: true;
+}
+
+element {
+    orientation: horizontal;
+    padding: 12px 15px;
+    border-radius: 6px;
+}
+
+element normal.normal, element alternate.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: @bg-alt;
+    border: 1px solid;
+    border-color: @accent;
+    text-color: @accent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+}
+

@@ -1,0 +1,35 @@
+[global]
+    font = JetBrainsMono Nerd Font 12
+    
+    # Appearance
+    width = 300
+    height = 200
+    offset = 20x20
+    origin = bottom-right
+    transparency = 10
+    corner_radius = 8
+    frame_width = 2
+    frame_color = "#50c5e5"
+    
+    # Text formatting
+    markup = full
+    format = "<b>%s</b>\n%b"
+    word_wrap = yes
+
+[urgency_low]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    frame_color = "#313244"
+    timeout = 3
+
+[urgency_normal]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    frame_color = "#50c5e5"
+    timeout = 5
+
+[urgency_critical]
+    background = "#1e1e2e"
+    foreground = "#f38ba8"
+    frame_color = "#f38ba8"
+    timeout = 0

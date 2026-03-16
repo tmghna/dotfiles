@@ -1,0 +1,97 @@
+configuration {
+    modi: "drun";
+    show-icons: true;
+    icon-theme: "Papirus";
+    display-drun: " ";
+    drun-display-format: "{name}";
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+* {
+    bg: #1e1e2e;          /* Catppuccin Base */
+    bg-alt: #313244;      /* Catppuccin Surface */
+    fg: #cdd6f4;          /* Catppuccin Text */
+    accent: #cba6f7;      /* Cyan-Blue */
+    
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    transparency: "real";
+    width: 650px;
+    background-color: @bg;
+    border: 2px solid;
+    border-color: @accent;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+mainbox {
+    spacing: 20px;
+}
+
+inputbar {
+    background-color: @bg-alt;
+    border-radius: 6px;
+    padding: 12px 20px;
+    spacing: 15px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @accent;
+    font: "JetBrainsMono Nerd Font 14";
+    vertical-align: 0.5;
+}
+
+entry {
+    placeholder: "Search Apps...";
+    placeholder-color: #a6adc8;
+    text-color: @fg;                  /* FIXED: Forces your typed search text to be visible */
+    vertical-align: 0.5;
+}
+
+listview {
+    columns: 4;
+    lines: 3;
+    spacing: 15px;
+    fixed-height: true;
+    fixed-columns: true;
+}
+
+element {
+    orientation: vertical;
+    padding: 15px 10px;
+    border-radius: 6px;
+    spacing: 10px;
+}
+
+element normal.normal, element alternate.normal {
+    background-color: transparent;
+    text-color: @fg;                  /* FIXED: Forces unselected app names to be visible */
+}
+
+element selected.normal {
+    background-color: @bg-alt;
+    border: 1px solid;
+    border-color: @accent;
+    text-color: @accent;              /* Makes the highlighted app text turn Cyan! */
+}
+
+element-icon {
+    size: 48px;
+    cursor: inherit;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;              /* Forces the text to obey the normal/selected rules above */
+    cursor: inherit;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    highlight: bold #50c5e5;
+}
