@@ -8,7 +8,7 @@ configuration {
 }
 
 * {
-    bg: #1e1e2e;          /* Catppuccin Base */
+    bg: #1E1E2ED9;          /* Catppuccin Base */
     bg-alt: #313244;      /* Catppuccin Surface */
     fg: #cdd6f4;          /* Catppuccin Text */
     accent: #cba6f7;      /* Cyan-Blue */

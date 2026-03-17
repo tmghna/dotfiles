@@ -15,3 +15,11 @@ unsetopt correct_all
 
 # Custom Git Bare Repo Alias
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Force Zsh to recalculate and redraw the prompt on window resize
+TRAPWINCH() {
+  if [[ -o zle ]]; then
+    zle reset-prompt
+    zle -R
+  fi
+}

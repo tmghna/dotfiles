@@ -57,5 +57,6 @@ greenclip daemon &
 
 # Auto-lock after 5 mins, then Suspend after 10 mins of being locked
 xautolock -time 5 -locker "betterlockscreen -l blur" -killtime 5 -killer "systemctl suspend" &
+export GTK_THEME="Catppuccin-Mocha-Standard-Mauve-Dark:dark"
 
 exec xmonad

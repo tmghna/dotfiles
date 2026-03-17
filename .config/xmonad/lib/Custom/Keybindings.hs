@@ -17,6 +17,7 @@ myKeys =
     , ("M-<Tab>", sendMessage NextLayout)                              -- Move Layout cycling to Super + Tab
     , ("M-<Escape>", spawn "betterlockscreen -l blur")                 -- Super + Esc: Lock screen
     , ("M-S-<Escape>", spawn "systemctl poweroff")		       -- Super + Shift + Esc: Shutdown
+    , ("M-n", spawn "nm-connection-editor")                            -- Advanced Network Manager
 
     -- Volume Controls (Using WirePlumber)
     , ("<XF86AudioRaiseVolume>", spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+")

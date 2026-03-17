@@ -3,7 +3,7 @@ configuration {
 }
 
 * {
-    bg: #1e1e2e;
+    bg: #1e1e2ed9;
     bg-alt: #313244;
     fg: #cdd6f4;
     accent: "#cba6f7";
