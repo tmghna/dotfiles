@@ -4,13 +4,13 @@ Config {
     , additionalFonts = [ "xft:JetBrainsMono Nerd Font:size=14" ] -- For larger icons
     , bgColor = "#1e1e2e" -- Catppuccin Mocha Base
     , fgColor = "#cdd6f4" -- Catppuccin Mocha Text
-    , position = Static { xpos = 15, ypos = 5, width = 1890, height = 30 }
+    , position = Static { xpos = 15, ypos = 5, width = 1890, height = 36 }    
     , alpha = 217 -- Matches your Rofi 85% opacity (optional, requires a compositor)
     , sepChar = "%"
     , alignSep = "}{"
        
        -- The Layout Template
-       , template = " <fc=#cba6f7>	</fc> %StdinReader% }{ <fc=#cba6f7> </fc> %cpu% | <fc=#89b4fa> </fc> %memory% | %temp% | <fc=#f9e2af>󰃠 </fc> %bright% | <fc=#fab387>󰕾</fc>  %volume% | <fc=#a6e3a1>󰖩 </fc> %wifi% | %battery% | <fc=#b4befe>󰸗  %date%</fc> "
+       , template = " <fc=#cba6f7> 	</fc> %StdinReader% }{ <fc=#cba6f7> </fc> %cpu% | <fc=#89b4fa> </fc> %memory% | %temp% | <fc=#f9e2af>󰃠 </fc> %bright% | <fc=#fab387>󰕾</fc>  %volume% | <fc=#a6e3a1>󰖩 </fc> %wifi% | %battery% | <fc=#b4befe>󰸗  %date%</fc> "
        
        , commands =
             [ 
