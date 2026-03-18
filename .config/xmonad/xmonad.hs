@@ -21,25 +21,17 @@ toggleStrutsKey XConfig { modMask = m } = (m, xK_b)
 -- This entirely customizes the %StdinReader% output format
 myXmobarPP :: PP
 myXmobarPP = xmobarPP
-    { -- Reorders the output to Layout, Workspace, Title
-      ppOrder           = \(ws:l:t:_) -> [l, ws, t]
-      
-      -- Sets the divider between sections
-    , ppSep             = " <fc=#6c7086>|</fc> "
-    
-      -- Wraps the currently active workspace in brackets and colors it green
-    , ppCurrent         = xmobarColor "#a6e3a1" "" . wrap "[" "]"
-    
-      -- Wraps hidden workspaces that have open windows in brackets and colors them blue
-    , ppHidden          = xmobarColor "#89b4fa" "" . wrap "[" "]"
-    
-      -- Wraps empty workspaces in brackets and dims them
-    , ppHiddenNoWindows = xmobarColor "#45475a" "" . wrap "[" "]"
-    
-      -- Colors the Layout text (Tall, Mirror Tall, Full)
-    , ppLayout          = xmobarColor "#fab387" ""
-    
-      -- Colors the window title and cuts it off if it gets too long
+    { ppOrder           = \(ws:l:t:_) -> [l, ws, t]
+    , ppSep             = "  " 
+    -- \xf012f is the Nerd Font hex for the filled dot (Mauve)
+    , ppCurrent         = xmobarColor "#cba6f7" "" . const "\xf012f " 
+    -- \xf0130 is the Nerd Font hex for the hollow dot (Lavender/Subtext)
+    , ppVisible         = xmobarColor "#bac2de" "" . const "\xf0130 "
+    -- \xf0130 for hidden workspaces with windows (Surface2)
+    , ppHidden          = xmobarColor "#c2b9ec" "" . const "\xf0130 "
+    -- Empty workspaces (Surface0)
+    , ppHiddenNoWindows = xmobarColor "#45475a" "" . const "\xf0130 "
+    , ppLayout          = xmobarColor "#f9e2af" ""
     , ppTitle           = xmobarColor "#cdd6f4" "" . shorten 40
     }
 

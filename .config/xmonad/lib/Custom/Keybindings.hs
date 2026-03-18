@@ -16,7 +16,7 @@ myKeys =
     , ("M-z", spawn "wezterm start -- yazi ~")                         -- Launch yazi in new terminal at home
     , ("M-<Tab>", sendMessage NextLayout)                              -- Move Layout cycling to Super + Tab
     , ("M-<Escape>", spawn "betterlockscreen -l blur")                 -- Super + Esc: Lock screen
-    , ("M-S-<Escape>", spawn "systemctl poweroff")		       -- Super + Shift + Esc: Shutdown
+    , ("M-S-<Escape>", spawn "systemctl poweroff")                     -- Super + Shift + Esc: Shutdown
     , ("M-n", spawn "nm-connection-editor")                            -- Advanced Network Manager
 
     -- Volume Controls (Using WirePlumber)

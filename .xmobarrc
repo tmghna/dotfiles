@@ -1,20 +1,26 @@
-Config { font = "xft:JetBrainsMono Nerd Font:size=11:antialias=true"
-       , additionalFonts = ["xft:Font Awesome 6 Free:style=Solid:size=11"]
-       , bgColor = "#1e1e2e" -- Minimal dark background
-       , fgColor = "#cdd6f4" -- Default text color
-       , position = TopSize L 100 30
-       , sepChar = "%"
-       , alignSep = "}{"
+Config {
+    -- Increase size slightly for the 1080p display and use Nerd Font exclusively
+    font = "xft:JetBrainsMono Nerd Font:style=Bold:size=12:antialias=true"
+    , additionalFonts = [ "xft:JetBrainsMono Nerd Font:size=14" ] -- For larger icons
+    , bgColor = "#1e1e2e" -- Catppuccin Mocha Base
+    , fgColor = "#cdd6f4" -- Catppuccin Mocha Text
+    , position = Static { xpos = 15, ypos = 5, width = 1890, height = 30 }
+    , alpha = 217 -- Matches your Rofi 85% opacity (optional, requires a compositor)
+    , sepChar = "%"
+    , alignSep = "}{"
        
        -- The Layout Template
-       , template = "  <fc=#ff4a5a></fc>	%StdinReader% }{ <fc=#cba6f7><fn=1></fn> cpu: (%cpu%)</fc> | <fc=#89b4fa><fn=1></fn> mem: (%memory%)</fc> | <fc=#f9e2af><fn=1></fn> nits: (%bright%)</fc> | <fc=#fab387><fn=1></fn> vol: (%volume%)</fc> | <fc=#a6e3a1><fn=1></fn> strength: (%wifi%)</fc> | %battery% | <fc=#b4befe> %date%</fc> "
+       , template = " <fc=#cba6f7>	</fc> %StdinReader% }{ <fc=#cba6f7> </fc> %cpu% | <fc=#89b4fa> </fc> %memory% | %temp% | <fc=#f9e2af>󰃠 </fc> %bright% | <fc=#fab387>󰕾</fc>  %volume% | <fc=#a6e3a1>󰖩 </fc> %wifi% | %battery% | <fc=#b4befe>󰸗  %date%</fc> "
        
        , commands =
             [ 
               -- CPU & Memory
               Run Cpu ["-t", "<total>%"] 50
             , Run Memory ["-t", "<usedratio>%"] 20
-            
+
+              -- Temperature
+            , Run Com "/home/tdey/.config/xmobar/temp.sh" [] "temp" 20
+
               -- Brightness
             , Run Com "bash" ["-c", "brightnessctl -m | cut -d, -f4"] "bright" 1
             
@@ -26,7 +32,7 @@ Config { font = "xft:JetBrainsMono Nerd Font:size=11:antialias=true"
             
               -- Battery (REPLACE "BAT1" IF IT IS DIFFERENT)
             , Run BatteryP ["BAT1"]
-                [ "-t", "<acstatus><left>%"
+                [ "-t", "<acstatus> <left>%"
 	        -- Thresholds and their colors MUST go before the '--'
                 , "-H", "70", "-L", "30"          
                 , "-h", "#a6e3a1"                 -- High: Green
