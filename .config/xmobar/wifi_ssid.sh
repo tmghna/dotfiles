@@ -9,5 +9,5 @@ if [ -z "$ssid" ]; then
     echo "<fc=#f38ba8>󰖪</fc> "
 else
     # Connected: Green WiFi Icon + SSID
-    echo "<fc=#a6e3a1>󰖩</fc> $ssid"
+    echo "<fc=#a6e3a1>󰖩 </fc>$ssid"
 fi

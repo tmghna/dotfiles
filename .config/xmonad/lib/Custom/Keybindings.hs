@@ -15,13 +15,13 @@ myKeys =
     , ("M-v", spawn "~/.config/xmonad/scripts/smart_paste.sh")         -- Super + v: Clipbaord History Manager
     , ("M-z", spawn "wezterm start -- yazi ~")                         -- Launch yazi in new terminal at home
     , ("M-<Tab>", sendMessage NextLayout)                              -- Move Layout cycling to Super + Tab
-    , ("M-<Escape>", spawn "betterlockscreen -l blur")                 -- Super + Esc: Lock screen
+    , ("M-<Escape>", spawn "betterlockscreen -l dim")                 -- Super + Esc: Lock screen
     , ("M-S-<Escape>", spawn "systemctl poweroff")                     -- Super + Shift + Esc: Shutdown
     , ("M-n", spawn "nm-connection-editor")                            -- Advanced Network Manager
 
     -- Volume Controls (Using WirePlumber)
-    , ("<XF86AudioRaiseVolume>", spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+")
-    , ("<XF86AudioLowerVolume>", spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-")
+    , ("<XF86AudioRaiseVolume>", spawn "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+")
+    , ("<XF86AudioLowerVolume>", spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-")
     , ("<XF86AudioMute>", spawn "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
     , ("<XF86AudioMicMute>", spawn "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle")
 

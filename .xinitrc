@@ -56,7 +56,7 @@ picom -b &
 greenclip daemon &
 
 # Auto-lock after 5 mins, then Suspend after 10 mins of being locked
-xautolock -time 5 -locker "betterlockscreen -l blur" -killtime 5 -killer "systemctl suspend" &
+xautolock -time 5 -locker "betterlockscreen -l dim" -killtime 5 -killer "systemctl suspend" &
 
 export QT_QPA_PLATFORMTHEME="gtk3"
 exec xmonad

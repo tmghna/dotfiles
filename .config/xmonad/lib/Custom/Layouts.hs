@@ -8,7 +8,7 @@ import XMonad.Layout.Spacing
 import XMonad.Hooks.ManageDocks (avoidStruts)
 
 -- spacingRaw Args: SmartBorder(False), ScreenGap, ScreenGapEnabled, WindowGap, WindowGapEnabled
-myGaps = spacingRaw False (Border 5 5 5 5) True (Border 10 10 10 10) True
+myGaps = spacingRaw False (Border 2 2 2 2) True (Border 6 6 6 6) True
 
  
 -- ResizableTall arguments:

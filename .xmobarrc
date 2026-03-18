@@ -1,16 +1,19 @@
 Config {
     -- Increase size slightly for the 1080p display and use Nerd Font exclusively
-    font = "xft:JetBrainsMono Nerd Font:style=Bold:size=12:antialias=true"
-    , additionalFonts = [ "xft:JetBrainsMono Nerd Font:size=14" ] -- For larger icons
+    font = "xft:JetBrainsMono Nerd Font:style=Bold:size=11:antialias=true"
+    , additionalFonts = [ 
+         "xft:JetBrainsMono Nerd Font:size=14"     -- <fn=1> for larger icons
+       , "xft:JetBrainsMono Nerd Font:size=24"     -- <fn=2> Vertical Stretcher
+    ]
     , bgColor = "#1e1e2e" -- Catppuccin Mocha Base
     , fgColor = "#cdd6f4" -- Catppuccin Mocha Text
-    , position = Static { xpos = 15, ypos = 5, width = 1890, height = 36 }    
-    , alpha = 217 -- Matches your Rofi 85% opacity (optional, requires a compositor)
+    , position = Static { xpos = 10, ypos = 5, width = 1900, height = 24 }    
+    , alpha = 217         -- Matches your Rofi 85% opacity (optional, requires a compositor)
     , sepChar = "%"
     , alignSep = "}{"
        
        -- The Layout Template
-       , template = " <fc=#cba6f7> 	</fc> %StdinReader% }{ <fc=#cba6f7> </fc> %cpu% | <fc=#89b4fa> </fc> %memory% | %temp% | <fc=#f9e2af>󰃠 </fc> %bright% | <fc=#fab387>󰕾</fc>  %volume% | <fc=#a6e3a1>󰖩 </fc> %wifi% | %battery% | <fc=#b4befe>󰸗  %date%</fc> "
+       , template = "<fc=#cba6f7> 	</fc> %StdinReader% }{ <fc=#cba6f7> </fc> %cpu% <fc=#585b70>󰇙</fc> <fc=#89b4fa> </fc> %memory% <fc=#585b70>󰇙</fc> %temp% <fc=#585b70>󰇙</fc> %wifi_ssid% <fc=#585b70>󰇙</fc> %wlan0% <fc=#585b70>󰇙</fc> <fc=#f9e2af>󰃠 </fc> %bright% <fc=#585b70>󰇙</fc> %speaker% <fc=#585b70>󰇙</fc> %mic% <fc=#585b70>󰇙</fc> %battery%  <fc=#1e1e2e,#cba6f7> %date% </fc>"
        
        , commands =
             [ 
@@ -25,11 +28,19 @@ Config {
             , Run Com "bash" ["-c", "brightnessctl -m | cut -d, -f4"] "bright" 1
             
               -- Volume (Using wpctl)
-            , Run Com "bash" ["-c", "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{if ($3 == \"[MUTED]\") print \"Muted\"; else print int($2 * 100) \"%\"}'"] "volume" 1
+--            , Run Com "bash" ["-c", "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{if ($3 == \"[MUTED]\") print \"Muted\"; else print int($2 * 100) \"%\"}'"] "volume" 1
+            , Run Com "/home/tdey/.config/xmobar/audio_status.sh" ["speaker"] "speaker" 1
+            , Run Com "/home/tdey/.config/xmobar/audio_status.sh" ["mic"] "mic" 5  
+         
+              -- Custom SSID Script (Runs every 5 seconds)
+            , Run Com "/home/tdey/.config/xmobar/wifi_ssid.sh" [] "wifi_ssid" 50
             
-	      -- WiFi (Using NetworkManager bypass instead of the broken Wireless plugin)
-            , Run Com "bash" ["-c", "nmcli -t -f active,signal dev wifi | awk -F: '/^yes/ {print $2\"%\"}'"] "wifi" 50
-            
+              -- Network Speeds
+            , Run Network "wlan0" 
+                [ "-t", "<fc=#89b4fa>󰇚</fc> <rx> <fc=#fab387> 󰕒</fc> <tx>"
+                , "-S", "True"
+                ] 20
+ 
               -- Battery (REPLACE "BAT1" IF IT IS DIFFERENT)
             , Run BatteryP ["BAT1"]
                 [ "-t", "<acstatus> <left>%"
@@ -47,7 +58,7 @@ Config {
                 ] 20
                 
               -- Date & Time Format
-            , Run Date "%a %d/%m/%Y %H:%M:%S" "date" 10
+            , Run Date "%a %d/%m %H:%M" "date" 10
             
               -- Reads Xmonad Layout
             , Run StdinReader
