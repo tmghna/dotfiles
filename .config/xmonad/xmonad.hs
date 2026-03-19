@@ -1,8 +1,10 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
+import qualified XMonad.StackSet as W
 
 -- NEW: The essential module for status bars
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 
 import XMonad.Util.EZConfig (additionalKeysP)
 
@@ -45,6 +47,6 @@ myConfig = def
     
     , layoutHook         = myLayouts
     -- NEW: Tell Xmonad to manage the dock window space
-    , manageHook         = manageDocks <+> manageHook def
+    , manageHook         = (className =? "nmtui-floating" --> doRectFloat (W.RationalRect 0.02 0.50 0.60 0.48)) <+> manageDocks <+> manageHook def
     }
     `additionalKeysP` myKeys

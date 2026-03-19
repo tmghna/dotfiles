@@ -23,3 +23,9 @@ TRAPWINCH() {
     zle -R
   fi
 }
+
+# Institute Proxy Toggles
+alias proxy1="export http_proxy='http://172.16.2.250:3128' https_proxy='http://172.16.2.250:3128' no_proxy='localhost,127.0.0.1,::1'; echo 'Proxy 1 (250) ENABLED'"
+alias proxy2="export http_proxy='http://172.16.2.251:3128' https_proxy='http://172.16.2.251:3128' no_proxy='localhost,127.0.0.1,::1'; echo 'Proxy 2 (251) ENABLED'"
+alias proxy3="export http_proxy='http://172.16.2.252:3128' https_proxy='http://172.16.2.252:3128' no_proxy='localhost,127.0.0.1,::1'; echo 'Proxy 3 (252) ENABLED'"
+alias proxyoff="unset http_proxy https_proxy no_proxy; echo 'All Proxies DISABLED'"
