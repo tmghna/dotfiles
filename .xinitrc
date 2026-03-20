@@ -56,8 +56,8 @@ picom -b &
 greenclip daemon &
 touchegg &
 
-# Auto-lock after 10 mins of inactivity
-xautolock -time 10 -locker "betterlockscreen -l dim" &
+# Auto-lock after 5 mins of inactivity
+xautolock -time 5 -locker "betterlockscreen -l dim" &
 # Lock screen immediately when suspended
 xss-lock --transfer-sleep-lock -- betterlockscreen -l dim -- --nofork &
 

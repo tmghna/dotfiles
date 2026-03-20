@@ -13,7 +13,7 @@ Config {
     , alignSep = "}{"
        
        -- The Layout Template
-       , template = "<fc=#cba6f7> 	</fc> %StdinReader% }{ <fc=#cba6f7> </fc> %cpu% <fc=#585b70>󰇙</fc> <fc=#89b4fa> </fc> %memory% <fc=#585b70>󰇙</fc> %temp% <fc=#585b70>󰇙</fc> %wifi_ssid% <fc=#585b70>󰇙</fc> %wlan0% <fc=#585b70>󰇙</fc> <fc=#f9e2af>󰃠 </fc> %bright% <fc=#585b70>󰇙</fc> %speaker% <fc=#585b70>󰇙</fc> %mic% %bluetooth% <fc=#585b70>󰇙</fc> %battery%  <fc=#1e1e2e,#cba6f7> %date% </fc>"
+       , template = "<fc=#cba6f7>  </fc> %StdinReader% }{ <fc=#cba6f7> </fc> %cpu% <fc=#585b70>󰇙</fc> <fc=#89b4fa> </fc> %memory% <fc=#585b70>󰇙</fc> %temp% <fc=#585b70>󰇙</fc> %wifi_ssid% <fc=#585b70>󰇙</fc> %wlan0% <fc=#585b70>󰇙</fc> <fc=#f9e2af>󰃠 </fc> %bright% <fc=#585b70>󰇙</fc> %speaker% <fc=#585b70>󰇙</fc> %mic% %bluetooth% %camera% <fc=#585b70>󰇙</fc> %battery%  <fc=#1e1e2e,#cba6f7> %date% </fc>"
        
        , commands =
             [ 
@@ -33,6 +33,9 @@ Config {
 
               -- Bluetooth connection (Refresh at every 1s)
             , Run Com "/home/tdey/.config/xmobar/bluetooth.sh" [] "bluetooth" 10
+
+              -- Camera Safety Lock status
+            , Run Com "/home/tdey/.config/xmobar/camera.sh" [] "camera" 10
          
               -- Custom SSID Script (Runs every 2 seconds)
             , Run Com "/home/tdey/.config/xmobar/wifi_ssid.sh" [] "wifi_ssid" 20

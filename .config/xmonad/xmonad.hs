@@ -33,7 +33,11 @@ myXmobarPP = xmobarPP
     , ppHidden          = xmobarColor "#c2b9ec" "" . const "\xf0130 "
     -- Empty workspaces (Surface0)
     , ppHiddenNoWindows = xmobarColor "#45475a" "" . const "\xf0130 "
-    , ppLayout          = xmobarColor "#f9e2af" ""
+    , ppLayout          = xmobarColor "#f9e2af" "" . \x -> case x of
+        "Spacing ResizableTall" -> " Tile "  -- \xf303 is the Arch Logo
+        "Spacing Full"          -> " Full "
+        "Spacing Tall"          -> " Tall "  -- Fallback just in case
+        _                       -> x ++ " "
     , ppTitle           = xmobarColor "#cdd6f4" "" . shorten 40
     }
 
