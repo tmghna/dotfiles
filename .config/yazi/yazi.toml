@@ -1,0 +1,9 @@
+[opener]
+feh = [
+    { run = 'feh --scale-down --auto-zoom --image-bg "#1E1E2E" "$@"', orphan = true, desc = "feh" }
+]
+
+[open]
+prepend_rules = [
+    { mime = "image/*", use = "feh" }
+]
