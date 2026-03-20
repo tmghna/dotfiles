@@ -10,10 +10,10 @@ if [ "$1" = "speaker" ]; then
 
     if echo "$vol_info" | grep -q "\[MUTED\]"; then
         # Strikethrough Speaker in Red, keeping the percentage visible
-        echo "<fc=#F38BA8>󰝟 </fc> ${vol_pct}%"
+        echo "<fc=#F38BA8>󰝟 </fc>${vol_pct}%"
     else
         # Active Speaker in Mauve
-        echo "<fc=#CBA6F7>󰕾 </fc> ${vol_pct}%"
+        echo "<fc=#CBA6F7>󰕾 </fc>${vol_pct}%"
     fi
 
 # --- MICROPHONE LOGIC ---

@@ -13,7 +13,7 @@ Config {
     , alignSep = "}{"
        
        -- The Layout Template
-       , template = "<fc=#cba6f7> 	</fc> %StdinReader% }{ <fc=#cba6f7> </fc> %cpu% <fc=#585b70>󰇙</fc> <fc=#89b4fa> </fc> %memory% <fc=#585b70>󰇙</fc> %temp% <fc=#585b70>󰇙</fc> %wifi_ssid% <fc=#585b70>󰇙</fc> %wlan0% <fc=#585b70>󰇙</fc> <fc=#f9e2af>󰃠 </fc> %bright% <fc=#585b70>󰇙</fc> %speaker% <fc=#585b70>󰇙</fc> %mic% <fc=#585b70>󰇙</fc> %battery%  <fc=#1e1e2e,#cba6f7> %date% </fc>"
+       , template = "<fc=#cba6f7> 	</fc> %StdinReader% }{ <fc=#cba6f7> </fc> %cpu% <fc=#585b70>󰇙</fc> <fc=#89b4fa> </fc> %memory% <fc=#585b70>󰇙</fc> %temp% <fc=#585b70>󰇙</fc> %wifi_ssid% <fc=#585b70>󰇙</fc> %wlan0% <fc=#585b70>󰇙</fc> <fc=#f9e2af>󰃠 </fc> %bright% <fc=#585b70>󰇙</fc> %speaker% <fc=#585b70>󰇙</fc> %mic% %bluetooth% <fc=#585b70>󰇙</fc> %battery%  <fc=#1e1e2e,#cba6f7> %date% </fc>"
        
        , commands =
             [ 
@@ -28,12 +28,14 @@ Config {
             , Run Com "bash" ["-c", "brightnessctl -m | cut -d, -f4"] "bright" 1
             
               -- Volume (Using wpctl)
---            , Run Com "bash" ["-c", "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{if ($3 == \"[MUTED]\") print \"Muted\"; else print int($2 * 100) \"%\"}'"] "volume" 1
             , Run Com "/home/tdey/.config/xmobar/audio_status.sh" ["speaker"] "speaker" 1
-            , Run Com "/home/tdey/.config/xmobar/audio_status.sh" ["mic"] "mic" 5  
+            , Run Com "/home/tdey/.config/xmobar/audio_status.sh" ["mic"] "mic" 10  
+
+              -- Bluetooth connection (Refresh at every 1s)
+            , Run Com "/home/tdey/.config/xmobar/bluetooth.sh" [] "bluetooth" 10
          
-              -- Custom SSID Script (Runs every 5 seconds)
-            , Run Com "/home/tdey/.config/xmobar/wifi_ssid.sh" [] "wifi_ssid" 50
+              -- Custom SSID Script (Runs every 2 seconds)
+            , Run Com "/home/tdey/.config/xmobar/wifi_ssid.sh" [] "wifi_ssid" 20
             
               -- Network Speeds
             , Run Network "wlan0" 
