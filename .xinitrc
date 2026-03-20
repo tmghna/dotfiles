@@ -54,6 +54,7 @@ picom -b &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 ~/.config/xmonad/scripts/battery_alert.sh &
 greenclip daemon &
+touchegg &
 
 # Auto-lock after 5 mins, then Suspend after 5 mins of being locked
 xautolock -time 5 -locker "betterlockscreen -l dim" -killtime 5 -killer "systemctl suspend" &
