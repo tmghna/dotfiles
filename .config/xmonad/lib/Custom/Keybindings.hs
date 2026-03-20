@@ -5,6 +5,11 @@ import Custom.Variables (myTerminal)
 
 -- Import for vertical resizing
 import XMonad.Layout.ResizableTile (MirrorResize(..))
+-- Import for Cycling through windows
+import XMonad.Actions.CycleWS
+-- Import for floating window control
+import XMonad.Actions.FloatKeys
+import qualified XMonad.StackSet as W
 
 -- This defines the list of keybindings to be added
 myKeys :: [(String, X ())]
@@ -18,6 +23,12 @@ myKeys =
     , ("M-<Escape>", spawn "betterlockscreen -l dim")                  -- Super + Esc: Lock screen
     , ("M-S-<Escape>", spawn "systemctl poweroff")                     -- Super + Shift + Esc: Shutdown
     , ("M-n", spawn "wezterm start --class nmtui-floating -- nmtui")   -- Launch nmtui
+    , ("M-<R>", nextWS)                                                -- Next Workspace
+    , ("M-<L>",  prevWS)                                               -- Previous Workspace
+    , ("M--", withFocused (keysResizeWindow (-40, -40) (1/2, 1/2)))
+    , ("M-=", withFocused (keysResizeWindow (40, 40) (1/2, 1/2)))
+    , ("M-S-<Return>", windows W.swapMaster)
+
 
     -- Volume Controls (Using WirePlumber)
     , ("<XF86AudioRaiseVolume>", spawn "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+")
