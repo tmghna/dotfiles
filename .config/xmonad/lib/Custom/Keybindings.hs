@@ -20,7 +20,7 @@ myKeys =
     , ("M-v", spawn "~/.config/xmonad/scripts/smart_paste.sh")         -- Super + v: Clipbaord History Manager
     , ("M-z", spawn "wezterm start -- yazi ~")                         -- Launch yazi in new terminal at home
     , ("M-<Tab>", sendMessage NextLayout)                              -- Move Layout cycling to Super + Tab
-    , ("M-<Escape>", spawn "betterlockscreen -l dim")                  -- Super + Esc: Lock screen
+    , ("M-<Escape>", spawn "xautolock -locknow")                       -- Super + Esc: Lock screen
     , ("M-S-<Escape>", spawn "systemctl poweroff")                     -- Super + Shift + Esc: Shutdown
     , ("M-n", spawn "wezterm start --class nmtui-floating -- nmtui")   -- Launch nmtui
     , ("M-<R>", nextWS)                                                -- Next Workspace

@@ -56,8 +56,10 @@ picom -b &
 greenclip daemon &
 touchegg &
 
-# Auto-lock after 5 mins, then Suspend after 5 mins of being locked
-xautolock -time 5 -locker "betterlockscreen -l dim" -killtime 5 -killer "systemctl suspend" &
+# Auto-lock after 10 mins of inactivity
+xautolock -time 10 -locker "betterlockscreen -l dim" &
+# Lock screen immediately when suspended
+xss-lock --transfer-sleep-lock -- betterlockscreen -l dim -- --nofork &
 
 export QT_QPA_PLATFORMTHEME="gtk3"
 export NEWT_COLORS="root=default,default;window=default,default;border=magenta,default;textbox=white,default;button=black,magenta;listbox=white,default;sellistbox=black,magenta;actsellistbox=black,magenta;title=magenta,default;checkbox=magenta,default;actcheckbox=black,magenta;label=white,default;entry=magenta,default"
