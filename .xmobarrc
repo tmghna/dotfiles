@@ -7,7 +7,7 @@ Config {
     ]
     , bgColor = "#1e1e2e" -- Catppuccin Mocha Base
     , fgColor = "#cdd6f4" -- Catppuccin Mocha Text
-    , position = Static { xpos = 10, ypos = 5, width = 1900, height = 24 }    
+    , position = Static { xpos = 10, ypos = 7, width = 1900, height = 24 }    
     , alpha = 217         -- Matches your Rofi 85% opacity (optional, requires a compositor)
     , sepChar = "%"
     , alignSep = "}{"

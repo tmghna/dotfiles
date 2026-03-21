@@ -51,6 +51,11 @@ myConfig = def
     
     , layoutHook         = myLayouts
     -- NEW: Tell Xmonad to manage the dock window space
-    , manageHook         = (className =? "Blueman-manager" --> doCenterFloat) <+> (className =? "feh" --> doCenterFloat) <+> (className =? "nmtui-floating" --> doRectFloat (W.RationalRect 0.02 0.50 0.60 0.48)) <+> manageDocks <+> manageHook def
+    , manageHook = (isDialog --> doCenterFloat) 
+               <+> (className =? "Blueman-manager" --> doCenterFloat) 
+               <+> (className =? "feh" --> doCenterFloat) 
+               <+> (className =? "nmtui-floating" --> doRectFloat (W.RationalRect 0.02 0.50 0.60 0.48)) 
+               <+> manageDocks 
+               <+> manageHook def
     }
     `additionalKeysP` myKeys
