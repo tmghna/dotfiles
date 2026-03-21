@@ -34,7 +34,7 @@ myXmobarPP = xmobarPP
     -- Empty workspaces (Surface0)
     , ppHiddenNoWindows = xmobarColor "#45475a" "" . const "\xf0130 "
     , ppLayout          = xmobarColor "#f9e2af" "" . \x -> case x of
-        "Spacing ResizableTall" -> " Tile "  -- \xf303 is the Arch Logo
+        "Spacing ResizableTall" -> " Tiled "
         "Spacing Full"          -> " Full "
         "Spacing Tall"          -> " Tall "  -- Fallback just in case
         _                       -> x ++ " "

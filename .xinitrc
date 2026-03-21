@@ -46,6 +46,7 @@ if [ -d "$xinitdir"/xinitrc.d ] ; then
 	done
 	unset f
 fi
+
 feh --bg-fill /home/tdey/Pictures/Wallpaper/Vinland-color.png &
 dunst &
 setxkbmap us

@@ -48,7 +48,7 @@ myKeys =
 
     -- Screenshots (Using Flameshot)
     , ("M-s", spawn "flameshot gui")             -- Super + s key
-    , ("M-f", spawn "flameshot full -c")         -- Super + f to copy whole screen to clipboard 
+    , ("M-S-s", spawn "flameshot full -c")       -- Super + Shift + s to copy whole screen to clipboard 
 
     -- Master Pane
     , ("M-[", sendMessage (IncMasterN 1))      -- Pulls a window to the left
