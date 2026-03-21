@@ -29,6 +29,7 @@ myKeys =
     , ("M-=", withFocused (keysResizeWindow (40, 40) (1/2, 1/2)))
     , ("M-S-<Return>", windows W.swapMaster)
     , ("M-S-b", spawn "blueman-manager")
+    , ("M-c", spawn "/home/tdey/.config/xmonad/scripts/caffeine_toggle.sh")
 
     -- Volume Controls (Using WirePlumber)
     , ("<XF86AudioRaiseVolume>", spawn "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+")

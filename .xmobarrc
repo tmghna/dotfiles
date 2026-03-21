@@ -13,7 +13,7 @@ Config {
     , alignSep = "}{"
        
        -- The Layout Template
-       , template = "<fc=#cba6f7>  </fc> %StdinReader% }{ <fc=#cba6f7> </fc> %cpu% <fc=#585b70>󰇙</fc> <fc=#89b4fa> </fc> %memory% <fc=#585b70>󰇙</fc> %temp% <fc=#585b70>󰇙</fc> %wifi_ssid% <fc=#585b70>󰇙</fc> %wlan0% <fc=#585b70>󰇙</fc> <fc=#f9e2af>󰃠 </fc> %bright% <fc=#585b70>󰇙</fc> %speaker% <fc=#585b70>󰇙</fc> %mic% %bluetooth% %camera% <fc=#585b70>󰇙</fc> %battery%  <fc=#1e1e2e,#cba6f7> %date% </fc>"
+       , template = "<fc=#cba6f7>  </fc> %StdinReader% }{ <fc=#cba6f7> </fc> %cpu% <fc=#585b70>󰇙</fc> <fc=#89b4fa> </fc> %memory% <fc=#585b70>󰇙</fc> %temp% <fc=#585b70>󰇙</fc> %wifi_ssid% <fc=#585b70>󰇙</fc> %wlan0% <fc=#585b70>󰇙</fc> <fc=#f9e2af>󰃠 </fc> %bright% <fc=#585b70>󰇙</fc> %speaker% <fc=#585b70>󰇙</fc> %mic% %bluetooth% %camera% <fc=#585b70>󰇙</fc> %battery% <fc=#585b70>󰇙</fc>%caffeine% <fc=#1e1e2e,#cba6f7> %date% </fc>"
        
        , commands =
             [ 
@@ -61,6 +61,9 @@ Config {
                 
                 , "-o", "<fn=1></fn> "
                 ] 20
+
+              -- Caffeine Mode
+            , Run Com "/home/tdey/.config/xmobar/caffeine_status.sh" [] "caffeine" 5
                 
               -- Date & Time Format
             , Run Date "%a %d/%m %H:%M" "date" 10
