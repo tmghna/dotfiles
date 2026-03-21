@@ -8,12 +8,21 @@ if [ "$1" = "speaker" ]; then
     vol_level=$(echo "$vol_info" | awk '{print $2}')
     vol_pct=$(awk "BEGIN {print int($vol_level * 100)}")
 
-    if echo "$vol_info" | grep -q "\[MUTED\]"; then
-        # Strikethrough Speaker in Red, keeping the percentage visible
-        echo "<fc=#F38BA8>󰝟 </fc>${vol_pct}%"
+    # Inspect the default sink to see if it's a headphone/bluetooth device
+    if wpctl inspect @DEFAULT_AUDIO_SINK@ | grep -iqE 'headphone|headset|earbud|bluez'; then
+        icon_active="󰋋" # md-headphones
+        icon_muted="󰟎"  # md-headset_off
     else
-        # Active Speaker in Mauve
-        echo "<fc=#CBA6F7>󰕾 </fc>${vol_pct}%"
+        icon_active="󰕾" # md-volume_high
+        icon_muted="󰝟"  # md-volume_off
+    fi
+
+    if echo "$vol_info" | grep -q "\[MUTED\]"; then
+        # Strikethrough/Muted Icon in Red
+        echo "<fc=#F38BA8>${icon_muted} </fc>${vol_pct}%"
+    else
+        # Active Icon in Mauve
+        echo "<fc=#CBA6F7>${icon_active} </fc>${vol_pct}%"
     fi
 
 # --- MICROPHONE LOGIC ---

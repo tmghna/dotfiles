@@ -4,4 +4,4 @@
 temp=$(sensors | grep "Tctl:" | awk '{print $2}' | tr -d '+' | sed 's/°C//')
 
 # Print it formatted for Xmobar with a Catppuccin Mauve thermometer icon
-echo "<fc=#CBA6F7></fc>  ${temp}°C"
+echo "<fc=#f38ba8></fc>  ${temp}°C"

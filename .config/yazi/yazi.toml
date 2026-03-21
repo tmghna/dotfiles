@@ -1,9 +1,17 @@
 [opener]
-feh = [
+image_viewer = [
     { run = 'feh --scale-down --auto-zoom --image-bg "#1E1E2E" "$@"', orphan = true, desc = "feh" }
+]
+audio_player = [
+    { run = 'deadbeef "$@"', orphan = true, desc = "DeaDBeeF" }
+]
+video_player = [
+    { run = 'vlc "$@"', orphan = true, desc = "VLC" }
 ]
 
 [open]
 prepend_rules = [
-    { mime = "image/*", use = "feh" }
+    { mime = "image/*", use = "image_viewer" },
+    { mime = "audio/*", use = "audio_player" },
+    { mime = "video/*", use = "video_player" }
 ]
