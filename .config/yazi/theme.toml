@@ -1,12 +1,12 @@
 # ~/.config/yazi/theme.toml
 
-[manager]
+[mgr]
 # The cyan background with dark text for the currently selected file
-hovered = { fg = "#1e1e2e", bg = "#50c5e5", bold = true }
+hovered = { fg = "#1e1e2e", bg = "#cba6f7", bold = true }
 
 [status]
 # The color of the "NORMAL" mode badge at the bottom left
-mode_normal = { bg = "#50c5e5", fg = "#1e1e2e", bold = true }
+mode_normal = { bg = "#cba6f7", fg = "#1e1e2e", bold = true }
 # Green for visual selection mode
 mode_select = { bg = "#a6e3a1", fg = "#1e1e2e", bold = true }
 # Red for unset/error modes
@@ -14,7 +14,7 @@ mode_unset  = { bg = "#f38ba8", fg = "#1e1e2e", bold = true }
 
 # The progress bar colors at the bottom right
 progress_label  = { fg = "#ffffff", bold = true }
-progress_normal = { fg = "#50c5e5", bg = "#313244" }
+progress_normal = { fg = "#cba6f7", bg = "#313244" }
 progress_error  = { fg = "#f38ba8", bg = "#313244" }
 
 # Match the file permissions text to Catppuccin

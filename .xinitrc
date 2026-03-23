@@ -58,9 +58,9 @@ greenclip daemon &
 touchegg &
 
 # Auto-lock after 5 mins of inactivity
-xautolock -time 5 -locker "betterlockscreen -l dim" &
+xautolock -time 5 -locker "/home/tdey/.config/xmonad/scripts/lock_screen.sh" &
 # Lock screen immediately when suspended
-xss-lock --transfer-sleep-lock -- betterlockscreen -l dim -- --nofork &
+xss-lock --transfer-sleep-lock -- /home/tdey/.config/xmonad/scripts/lock_screen.sh &
 
 export QT_QPA_PLATFORMTHEME="gtk3"
 export NEWT_COLORS="root=default,default;window=default,default;border=magenta,default;textbox=white,default;button=black,magenta;listbox=white,default;sellistbox=black,magenta;actsellistbox=black,magenta;title=magenta,default;checkbox=magenta,default;actcheckbox=black,magenta;label=white,default;entry=magenta,default"

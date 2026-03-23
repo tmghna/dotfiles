@@ -14,17 +14,17 @@ import qualified XMonad.StackSet as W
 -- This defines the list of keybindings to be added
 myKeys :: [(String, X ())]
 myKeys =
-    [ ("M-<Return>", spawn myTerminal)                                 -- Super + Enter: Wezterm
-    , ("M-<Space>", spawn "rofi -show drun")                           -- Super + Space:  Rofi
+    [ ("M-<Return>", spawn myTerminal)                                        -- Super + Enter: Wezterm
+    , ("M-<Space>", spawn "rofi -show drun")                                  -- Super + Space:  Rofi
     , ("M-.", spawn "rofi -modi emoji -show emoji -emoji-mode insert -theme ~/.config/rofi/emoji.rasi -emoji-format '{emoji}'")      -- Super + . Rofi emoji picker
-    , ("M-v", spawn "~/.config/xmonad/scripts/smart_paste.sh")         -- Super + v: Clipbaord History Manager
-    , ("M-z", spawn "wezterm start -- yazi ~")                         -- Launch yazi in new terminal at home
-    , ("M-<Tab>", sendMessage NextLayout)                              -- Move Layout cycling to Super + Tab
-    , ("M-<Escape>", spawn "xautolock -locknow")                       -- Super + Esc: Lock screen
-    , ("M-S-<Escape>", spawn "systemctl poweroff")                     -- Super + Shift + Esc: Shutdown
-    , ("M-n", spawn "wezterm start --class nmtui-floating -- nmtui")   -- Launch nmtui
-    , ("M-<R>", nextWS)                                                -- Next Workspace
-    , ("M-<L>",  prevWS)                                               -- Previous Workspace
+    , ("M-v", spawn "~/.config/xmonad/scripts/smart_paste.sh")                -- Super + v: Clipbaord History Manager
+    , ("M-z", spawn "wezterm start -- yazi ~")                                -- Launch yazi in new terminal at home
+    , ("M-<Tab>", sendMessage NextLayout)                                     -- Move Layout cycling to Super + Tab
+    , ("M-<Escape>", spawn "/home/tdey/.config/xmonad/scripts/lock_screen.sh")-- Super + Esc: Lock screen
+    , ("M-S-<Escape>", spawn "systemctl poweroff")                            -- Super + Shift + Esc: Shutdown
+    , ("M-n", spawn "wezterm start --class nmtui-floating -- nmtui")          -- Launch nmtui
+    , ("M-<R>", nextWS)                                                       -- Next Workspace
+    , ("M-<L>",  prevWS)                                                      -- Previous Workspace
     , ("M--", withFocused (keysResizeWindow (-40, -40) (1/2, 1/2)))
     , ("M-=", withFocused (keysResizeWindow (40, 40) (1/2, 1/2)))
     , ("M-S-<Return>", windows W.swapMaster)
