@@ -49,7 +49,7 @@ fi
 
 feh --bg-fill /home/tdey/Pictures/Wallpaper/Vinland-color.png &
 dunst &
-setxkbmap us
+setxkbmap us &
 
 picom -b &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

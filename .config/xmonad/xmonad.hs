@@ -7,6 +7,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 
 import XMonad.Util.EZConfig (additionalKeysP)
+import Graphics.X11.ExtraTypes.XF86
 
 -- Import custom modules
 import Custom.Variables

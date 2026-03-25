@@ -8,10 +8,20 @@ audio_player = [
 video_player = [
     { run = 'vlc "$@"', orphan = true, desc = "VLC" }
 ]
+sioyek = [
+    { run = 'sioyek "$@"', orphan = true, desc = "Open in Sioyek" }
+]
+excel = [
+    { run = 'localc "$@"', orphan = true, desc = "Open in LibreOffice Calc" }
+]
 
 [open]
 prepend_rules = [
     { mime = "image/*", use = "image_viewer" },
     { mime = "audio/*", use = "audio_player" },
-    { mime = "video/*", use = "video_player" }
+    { mime = "video/*", use = "video_player" },
+    { mime = "application/pdf", use = "sioyek" },
+    { name = "*.xlsx", use = "excel" },
+    { name = "*.xls",  use = "excel" },
+    { name = "*.csv",  use = "excel"}
 ]

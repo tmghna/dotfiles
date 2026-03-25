@@ -57,4 +57,7 @@ myKeys =
     -- Vertical Resizing 
     , ("M-u", sendMessage MirrorExpand)        -- Enlarge focused window vertically
     , ("M-i", sendMessage MirrorShrink)        -- Shrink focused window vertically
+
+    -- Airplane Mode Toggle (F8 / Factory Key)
+    , ("<XF86RFKill>", spawn "/home/tdey/.config/xmonad/scripts/airplane_toggle.sh")
     ]

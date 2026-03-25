@@ -3,8 +3,8 @@
     
     # Appearance
     width = 300
-    height = 200
-    offset = 20x20
+    height = (0, 200)
+    offset = (20, 20)
     origin = bottom-right
     transparency = 10
     corner_radius = 8
