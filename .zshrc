@@ -33,3 +33,4 @@ alias proxy3="export http_proxy='http://172.16.2.252:3128' https_proxy='http://1
 alias proxyoff="unset http_proxy https_proxy no_proxy; echo 'All Proxies DISABLED'"
 
 alias devmode="source ~/src/.virtualenvs/shared_env/bin/activate"
+alias fixwarp="sudo systemctl restart warp-svc"

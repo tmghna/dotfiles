@@ -22,4 +22,14 @@ config.window_padding = {
 -- 4. Fix Font Resizing Behavior
 config.adjust_window_size_when_changing_font_size = false
 
+-- 5. Shortcut Configurations
+config.keys = {
+  -- Map Ctrl+Backspace to Ctrl+w (backward kill word)
+  {
+    key = 'Backspace',
+    mods = 'CTRL',
+    action = wezterm.action.SendKey { key = 'w', mods = 'CTRL' },
+  },
+}
+
 return config
