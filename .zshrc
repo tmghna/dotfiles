@@ -34,3 +34,5 @@ alias proxyoff="unset http_proxy https_proxy no_proxy; echo 'All Proxies DISABLE
 
 alias devmode="source ~/src/.virtualenvs/shared_env/bin/activate"
 alias fixwarp="sudo systemctl restart warp-svc"
+
+export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
