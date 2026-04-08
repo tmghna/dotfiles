@@ -15,7 +15,7 @@ import qualified XMonad.StackSet as W
 myKeys :: [(String, X ())]
 myKeys =
     [ ("M-<Return>", spawn myTerminal)                                        -- Super + Enter: Wezterm
-    , ("M-<Space>", spawn "rofi -show drun")                                  -- Super + Space:  Rofi
+    , ("M-<Space>", spawn "rofi -show combi")                                  -- Super + Space:  Rofi
     , ("M-.", spawn "rofi -modi emoji -show emoji -emoji-mode insert -theme ~/.config/rofi/emoji.rasi -emoji-format '{emoji}'")      -- Super + . Rofi emoji picker
     , ("M-v", spawn "~/.config/xmonad/scripts/smart_paste.sh")                -- Super + v: Clipbaord History Manager
     , ("M-z", spawn "wezterm start -- yazi ~")                                -- Launch yazi in new terminal at home

@@ -6,6 +6,9 @@ import qualified XMonad.StackSet as W
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 
+-- Essential for workspace data
+import XMonad.Hooks.EwmhDesktops
+
 import XMonad.Util.EZConfig (additionalKeysP)
 import Graphics.X11.ExtraTypes.XF86
 
@@ -16,7 +19,7 @@ import Custom.Layouts
 
 main :: IO ()
 -- Wrap myConfig in 'docks' so Xmonad actively listens for Xmobar
-main = xmonad =<< statusBar "xmobar" myXmobarPP toggleStrutsKey (docks myConfig)
+main = xmonad =<< statusBar "xmobar" myXmobarPP toggleStrutsKey (ewmh $ docks myConfig)
 
 -- This adds a shortcut (Super + b) to toggle the bar on and off if you want full screen
 toggleStrutsKey XConfig { modMask = m } = (m, xK_b)

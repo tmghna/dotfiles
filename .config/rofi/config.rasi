@@ -1,17 +1,24 @@
 configuration {
-    modi: "drun";
+    /* FIXED: The new array syntax required by recent Rofi versions */
+    modi: "combi,drun,window";
+    combi-modes: [ window, drun ];
+    
     show-icons: true;
     icon-theme: "Papirus";
-    display-drun: " ";
+    display-combi: " ";
+    
+    combi-hide-mode-prefix: true;
+    window-format: "  {w}  {c}";
     drun-display-format: "{name}";
+    
     font: "JetBrainsMono Nerd Font 11";
 }
 
 * {
-    bg: #1E1E2ED9;          /* Catppuccin Base */
-    bg-alt: #313244;      /* Catppuccin Surface */
-    fg: #cdd6f4;          /* Catppuccin Text */
-    accent: #cba6f7;      /* Cyan-Blue */
+    bg: #1e1e2ee6;
+    bg-alt: #313244;
+    fg: #cdd6f4;
+    accent: #cba6f7;
     
     background-color: transparent;
     margin: 0;
@@ -21,7 +28,7 @@ configuration {
 
 window {
     transparency: "real";
-    width: 650px;
+    width: 800px;
     background-color: @bg;
     border: 2px solid;
     border-color: @accent;
@@ -48,9 +55,9 @@ prompt {
 }
 
 entry {
-    placeholder: "Search Apps...";
+    placeholder: "Search Apps or Windows...";
     placeholder-color: #a6adc8;
-    text-color: @fg;                  /* FIXED: Forces your typed search text to be visible */
+    text-color: @fg;
     vertical-align: 0.5;
 }
 
@@ -69,16 +76,16 @@ element {
     spacing: 10px;
 }
 
-element normal.normal, element alternate.normal {
+element normal.normal, element alternate.normal, element normal.active, element alternate.active {
     background-color: transparent;
-    text-color: @fg;                  /* FIXED: Forces unselected app names to be visible */
+    text-color: @fg;
 }
 
-element selected.normal {
+element selected.normal, element selected.active {
     background-color: @bg-alt;
     border: 1px solid;
     border-color: @accent;
-    text-color: @accent;              /* Makes the highlighted app text turn Cyan! */
+    text-color: @accent;
 }
 
 element-icon {
@@ -89,9 +96,11 @@ element-icon {
 
 element-text {
     background-color: transparent;
-    text-color: inherit;              /* Forces the text to obey the normal/selected rules above */
+    text-color: inherit;
     cursor: inherit;
     horizontal-align: 0.5;
     vertical-align: 0.5;
-    highlight: bold #50c5e5;
+    font: "JetBrainsMono Nerd Font 10";
+    /* Simplified highlight to prevent parser crashes */
+    highlight: bold italic;
 }
