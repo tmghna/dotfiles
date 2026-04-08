@@ -1,0 +1,50 @@
+@import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css");
+
+:root {
+    --catppuccin-flavor: mocha;
+    --catppuccin-accent: mauve;
+    
+    /* 1. Force the foundation variables to clear */
+    --background-primary: transparent !important;
+    --background-secondary: rgba(24, 24, 37, 0.4) !important; /* Semi-transparent sidebars */
+    --background-secondary-alt: transparent !important;
+    --background-tertiary: transparent !important;
+    --window-background: transparent !important;
+    
+    --base: transparent !important;
+    --mantle: rgba(24, 24, 37, 0.4) !important;
+    --crust: transparent !important;
+}
+
+/* 2. The Carpet Bomb: Strip backgrounds from ALL structural block elements */
+#app-mount,
+.theme-dark,
+.theme-light,
+[class^="app_"],
+[class^="bg_"],
+[class^="layer_"],
+[class^="base_"],
+[class^="sidebar_"],
+[class^="panels_"],
+[class^="chat_"],
+[class^="chatContent_"],
+[class^="container_"],
+[class^="members_"],
+[class^="member_"],
+[class^="scroller_"],
+[class^="wrapper_"],
+[class^="content_"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* 3. Re-add a slight tint to the text input box so you can actually see where to type */
+[class^="channelTextArea_"],
+[class^="scrollableContainer_"] {
+    background: rgba(30, 30, 46, 0.6) !important;
+}
+
+/* 4. Fix blocky message hover effects */
+[class^="message_"]:hover {
+    background: rgba(255, 255, 255, 0.03) !important;
+}
