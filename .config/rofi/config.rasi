@@ -8,7 +8,7 @@ configuration {
     display-combi: " ";
     
     combi-hide-mode-prefix: true;
-    window-format: "  {w}  {c}";
+    window-format: "● {w} {c}";
     drun-display-format: "{name}";
     
     font: "JetBrainsMono Nerd Font 11";
@@ -89,7 +89,7 @@ element selected.normal, element selected.active {
 }
 
 element-icon {
-    size: 48px;
+    size: 52px;
     cursor: inherit;
     horizontal-align: 0.5;
 }
