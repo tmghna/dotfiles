@@ -26,13 +26,17 @@ TRAPWINCH() {
 
 eval "$(fnm env --use-on-cd)"
 
-# Institute Proxy Toggles
-alias proxy1="export http_proxy='http://172.16.2.250:3128' https_proxy='http://172.16.2.250:3128' no_proxy='localhost,127.0.0.1,::1'; echo 'Proxy 1 (250) ENABLED'"
-alias proxy2="export http_proxy='http://172.16.2.251:3128' https_proxy='http://172.16.2.251:3128' no_proxy='localhost,127.0.0.1,::1'; echo 'Proxy 2 (251) ENABLED'"
-alias proxy3="export http_proxy='http://172.16.2.252:3128' https_proxy='http://172.16.2.252:3128' no_proxy='localhost,127.0.0.1,::1'; echo 'Proxy 3 (252) ENABLED'"
-alias proxyoff="unset http_proxy https_proxy no_proxy; echo 'All Proxies DISABLED'"
+# Institute Proxy Toggles (Persistent)
+alias px1="echo \"export http_proxy='http://172.16.2.250:3128' https_proxy='http://172.16.2.250:3128' no_proxy='localhost,127.0.0.1,::1'\" > ~/.proxy_state && source ~/.proxy_state && echo 'Proxy 1 (250) ENABLED (Persistent)'"
+alias px2="echo \"export http_proxy='http://172.16.2.251:3128' https_proxy='http://172.16.2.251:3128' no_proxy='localhost,127.0.0.1,::1'\" > ~/.proxy_state && source ~/.proxy_state && echo 'Proxy 2 (251) ENABLED (Persistent)'"
+alias px3="echo \"export http_proxy='http://172.16.2.252:3128' https_proxy='http://172.16.2.252:3128' no_proxy='localhost,127.0.0.1,::1'\" > ~/.proxy_state && source ~/.proxy_state && echo 'Proxy 3 (252) ENABLED (Persistent)'"
+alias pxoff="echo \"unset http_proxy https_proxy no_proxy\" > ~/.proxy_state && source ~/.proxy_state && echo 'All Proxies DISABLED (Persistent)'"
+alias pxstatus="echo \"HTTP Proxy: \${http_proxy:-OFF} | HTTPS Proxy: \${https_proxy:-OFF}\""  
 
 alias devmode="source ~/src/.virtualenvs/shared_env/bin/activate"
 alias fixwarp="sudo systemctl restart warp-svc"
 
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
+
+# Load persistent proxy state if it exists
+[[ -f ~/.proxy_state ]] && source ~/.proxy_state

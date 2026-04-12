@@ -8,9 +8,13 @@ import XMonad.Hooks.ManageHelpers
 
 -- Essential for workspace data
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Actions.UpdatePointer
 
 import XMonad.Util.EZConfig (additionalKeysP)
 import Graphics.X11.ExtraTypes.XF86
+
+-- Startup Hooks
+import XMonad.Util.SpawnOnce (spawnOnce)
 
 -- Import custom modules
 import Custom.Variables
@@ -61,5 +65,11 @@ myConfig = def
                <+> (className =? "nmtui-floating" --> doRectFloat (W.RationalRect 0.02 0.50 0.60 0.48)) 
                <+> manageDocks 
                <+> manageHook def
+
+     -- NEW: Instantly teleport the cursor to the center of the focused window
+     , logHook = updatePointer (0.5, 0.5) (0, 0)
+
+     , startupHook = do
+        spawnOnce "udiskie &"
     }
     `additionalKeysP` myKeys
