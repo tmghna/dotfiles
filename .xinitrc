@@ -47,21 +47,9 @@ if [ -d "$xinitdir"/xinitrc.d ] ; then
 	unset f
 fi
 
-feh --bg-fill /home/tdey/Pictures/Wallpaper/Vinland-color.png &
-dunst &
-setxkbmap us &
-
-picom -b &
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-~/.config/xmonad/scripts/battery_alert.sh &
-greenclip daemon &
-touchegg &
-
-# Auto-lock after 5 mins of inactivity
-xautolock -time 5 -locker "/home/tdey/.config/xmonad/scripts/lock_screen.sh" &
-# Lock screen immediately when suspended
-xss-lock --transfer-sleep-lock -- /home/tdey/.config/xmonad/scripts/lock_screen.sh &
-
+# Environment Variables
 export QT_QPA_PLATFORMTHEME="gtk3"
 export NEWT_COLORS="root=default,default;window=default,default;border=magenta,default;textbox=white,default;button=black,magenta;listbox=white,default;sellistbox=black,magenta;actsellistbox=black,magenta;title=magenta,default;checkbox=magenta,default;actcheckbox=black,magenta;label=white,default;entry=magenta,default"
+
+# Launch Xmonad
 exec xmonad

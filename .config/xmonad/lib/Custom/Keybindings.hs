@@ -29,11 +29,11 @@ myKeys =
     , ("M--", withFocused (keysResizeWindow (-40, -40) (1/2, 1/2)))
     , ("M-=", withFocused (keysResizeWindow (40, 40) (1/2, 1/2)))
     , ("M-S-<Return>", windows W.swapMaster)
-    , ("M-S-b", spawn "blueman-manager")
+    , ("M-b", spawn "blueman-manager")
     , ("M-c", spawn "/home/tdey/.config/xmonad/scripts/caffeine_toggle.sh")
     , ("M-S--", withFocused (keysResizeWindow (-40, 0) (1/2, 1/2)))           -- Squeeze horizontally
     , ("M-S-=", withFocused (keysResizeWindow (40, 0) (1/2, 1/2)))            -- Expand horizontally
-    , ("M-d", asks (layoutHook . config) >>= setLayout)          -- Reset current workspace layout to default
+    , ("M-d", asks (layoutHook . config) >>= setLayout)                       -- Reset current workspace layout to defaultf
 
     -- Cycle and Shift windows
     , ("M-j", windows W.focusUp)
