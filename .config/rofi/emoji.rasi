@@ -21,7 +21,7 @@ configuration {
 window {
     width: 500px;
     background-color: @bg;
-    border: 2px solid;
+    border: 2px;
     border-color: @accent;
     border-radius: 8px;
     padding: 20px;
@@ -73,7 +73,7 @@ element normal.normal, element alternate.normal {
 
 element selected.normal {
     background-color: @bg-alt;
-    border: 1px solid;
+    border: 1px;
     border-color: @accent;
 }
 
