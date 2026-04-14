@@ -1,12 +1,8 @@
-configuration {
-    display-clipboard: "📋 ";
-}
-
 * {
     bg: #1e1e2ed9;
     bg-alt: #313244;
     fg: #cdd6f4;
-    accent: "#cba6f7";
+    accent: #cba6f7;
     
     background-color: transparent;
     text-color: @fg;
@@ -18,7 +14,7 @@ configuration {
 window {
     width: 600px;
     background-color: @bg;
-    border: 2px solid;
+    border: 2px;
     border-color: @accent;
     border-radius: 8px;
     padding: 20px;
@@ -33,10 +29,12 @@ inputbar {
     border-radius: 6px;
     padding: 12px 20px;
     spacing: 15px;
-    children: [ prompt, entry ];
+    children: [ textbox-prompt-colon, entry ];
 }
 
-prompt {
+textbox-prompt-colon {
+    expand: false;
+    str: "📋";
     text-color: @accent;
     font: "JetBrainsMono Nerd Font 14";
     vertical-align: 0.5;
@@ -69,7 +67,7 @@ element normal.normal, element alternate.normal {
 
 element selected.normal {
     background-color: @bg-alt;
-    border: 1px solid;
+    border: 1px;
     border-color: @accent;
     text-color: @accent;
 }

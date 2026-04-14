@@ -14,6 +14,9 @@ sioyek = [
 excel = [
     { run = 'localc "$@"', orphan = true, desc = "Open in LibreOffice Calc" }
 ]
+neovim = [
+    { run = 'nvim "$@"', orphan = true, desc = "Open in Neovim" }
+]
 
 [open]
 prepend_rules = [
@@ -23,5 +26,6 @@ prepend_rules = [
     { mime = "application/pdf", use = "sioyek" },
     { name = "*.xlsx", use = "excel" },
     { name = "*.xls",  use = "excel" },
-    { name = "*.csv",  use = "excel"}
+    { name = "*.csv",  use = "excel"},
+    { name = "*.history", use = "neovim" }
 ]
