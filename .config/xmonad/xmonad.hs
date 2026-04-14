@@ -77,8 +77,8 @@ myConfig = def
                <+> manageDocks 
                <+> manageHook def
 
-     -- NEW: Instantly teleport the cursor to the center of the focused window
-     , logHook = updatePointer (0.5, 0.5) (0, 0)
+     -- NEW: Sticky window red border and Instantly teleport the cursor to the center of the focused window
+     , logHook = updateLockedBorder >> updatePointer (0.5, 0.5) (0, 0)
 
      , startupHook = myStartupHook
     }

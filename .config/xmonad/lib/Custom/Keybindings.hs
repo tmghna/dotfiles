@@ -1,7 +1,7 @@
 module Custom.Keybindings where
 
 import XMonad
-import Custom.Variables (myTerminal)
+import Custom.Variables (myTerminal, toggleSticky)
 
 -- Import for vertical resizing
 import XMonad.Layout.ResizableTile (MirrorResize(..))
@@ -33,7 +33,9 @@ myKeys =
     , ("M-c", spawn "/home/tdey/.config/xmonad/scripts/caffeine_toggle.sh")
     , ("M-S--", withFocused (keysResizeWindow (-40, 0) (1/2, 1/2)))           -- Squeeze horizontally
     , ("M-S-=", withFocused (keysResizeWindow (40, 0) (1/2, 1/2)))            -- Expand horizontally
-    , ("M-d", asks (layoutHook . config) >>= setLayout)                       -- Reset current workspace layout to defaultf
+    , ("M-d", asks (layoutHook . config) >>= setLayout)                       -- Reset current workspace layout to default
+    , ("M-,", spawn "~/.config/xmonad/scripts/toggle_wallpaper.sh")           -- Toggle Wallpaper View
+    , ("M-`", toggleSticky)                                                 -- Sticky Window
 
     -- Cycle and Shift windows
     , ("M-j", windows W.focusUp)
