@@ -60,6 +60,15 @@ myXmobarPP = xmobarPP
     , ppExtras          = [fmap (fmap $ xmobarColor "#eba0ac" "") windowCount] -- NEW: Add the window count to the extras list
     }
 
+myManageHook :: ManageHook
+myManageHook = composeAll
+    [ isDialog                                 --> doCenterFloat
+    , className =? "Blueman-manager"           --> doCenterFloat
+    , className =? "feh"                       --> doCenterFloat
+    , className =? "nmtui-floating"            --> doRectFloat (W.RationalRect 0.02 0.50 0.60 0.48)
+    , className =? "Brave-browser" <&&> appName =? "home_tdey_.config_xmonad_xmonad_keybindings.html" --> doCenterFloat
+    ]
+
 myConfig = def
     { terminal           = myTerminal
     , modMask            = myModMask		-- Super/Windows key as the modifier
@@ -70,16 +79,11 @@ myConfig = def
     
     , layoutHook         = myLayouts
     -- NEW: Tell Xmonad to manage the dock window space
-    , manageHook = (isDialog --> doCenterFloat) 
-               <+> (className =? "Blueman-manager" --> doCenterFloat) 
-               <+> (className =? "feh" --> doCenterFloat) 
-               <+> (className =? "nmtui-floating" --> doRectFloat (W.RationalRect 0.02 0.50 0.60 0.48)) 
-               <+> manageDocks 
-               <+> manageHook def
+    , manageHook = myManageHook <+> manageHook def
 
-     -- NEW: Sticky window red border and Instantly teleport the cursor to the center of the focused window
-     , logHook = updateLockedBorder >> updatePointer (0.5, 0.5) (0, 0)
+    -- NEW: Sticky window red border and Instantly teleport the cursor to the center of the focused window
+    , logHook = updateLockedBorder >> updatePointer (0.5, 0.5) (0, 0)
 
-     , startupHook = myStartupHook
+    , startupHook = myStartupHook
     }
     `additionalKeysP` myKeys

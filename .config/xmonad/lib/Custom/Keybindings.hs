@@ -35,7 +35,8 @@ myKeys =
     , ("M-S-=", withFocused (keysResizeWindow (40, 0) (1/2, 1/2)))            -- Expand horizontally
     , ("M-d", asks (layoutHook . config) >>= setLayout)                       -- Reset current workspace layout to default
     , ("M-,", spawn "~/.config/xmonad/scripts/toggle_wallpaper.sh")           -- Toggle Wallpaper View
-    , ("M-`", toggleSticky)                                                 -- Sticky Window
+    , ("M-`", toggleSticky)                                                   -- Sticky Window
+    , ("M-S-/", spawn "brave --app=file:///home/tdey/.config/xmonad/xmonad_keybindings.html")
 
     -- Cycle and Shift windows
     , ("M-j", windows W.focusUp)

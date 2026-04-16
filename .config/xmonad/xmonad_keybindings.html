@@ -1,0 +1,180 @@
+<style>
+/* Catppuccin Mocha Theme Base */
+:root {
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --surface0: #313244;
+    --surface1: #45475a;
+    --text: #cdd6f4;
+    --subtext0: #a6adc8;
+    
+    /* Category Colors */
+    --c-xmonad: #f38ba8;    /* Red */
+    --c-windows: #89b4fa;   /* Blue */
+    --c-programs: #a6e3a1;  /* Green */
+    --c-xinerama: #fab387;  /* Peach */
+    --c-layout: #cba6f7;    /* Mauve */
+    --c-workspaces: #f9e2af;/* Yellow */
+}
+
+.kb-wrapper {
+    background-color: var(--base);
+    color: var(--text);
+    font-family: 'JetBrainsMono Nerd Font', 'Fira Code', monospace;
+    padding: 30px;
+    border-radius: 12px;
+    line-height: 1.5;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.kb-header {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: var(--text);
+    border-bottom: 2px solid var(--surface1);
+    padding-bottom: 10px;
+}
+
+.kb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.kb-section {
+    background-color: var(--mantle);
+    border-radius: 8px;
+    padding: 15px 20px;
+    border-top: 4px solid;
+}
+
+.kb-section.xmonad { border-color: var(--c-xmonad); }
+.kb-section.windows { border-color: var(--c-windows); }
+.kb-section.programs { border-color: var(--c-programs); }
+.kb-section.xinerama { border-color: var(--c-xinerama); }
+.kb-section.layout { border-color: var(--c-layout); }
+.kb-section.workspaces { border-color: var(--c-workspaces); }
+
+.kb-section-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.xmonad .kb-section-title { color: var(--c-xmonad); }
+.windows .kb-section-title { color: var(--c-windows); }
+.programs .kb-section-title { color: var(--c-programs); }
+.xinerama .kb-section-title { color: var(--c-xinerama); }
+.layout .kb-section-title { color: var(--c-layout); }
+.workspaces .kb-section-title { color: var(--c-workspaces); }
+
+.kb-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--surface0);
+}
+
+.kb-row:last-child {
+    border-bottom: none;
+}
+
+.kb-desc {
+    color: var(--subtext0);
+    font-size: 0.95em;
+}
+
+kbd {
+    background-color: var(--surface1);
+    color: var(--text);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    border: 1px solid var(--surface0);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.2);
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+</style>
+
+<div class="kb-wrapper">
+    <div class="kb-header"> monad Keybindings</div>
+    <div class="kb-grid">
+        <div class="kb-section xmonad">
+            <div class="kb-section-title">Xmonad System</div>
+            <div class="kb-row"><span class="kb-desc">View all Shortcuts</span><kbd>M + Shift + /</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Restart Xmonad</span><kbd>M + q</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Quit Xmonad</span><kbd>M + Q</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Lock screen</span><kbd>M + esc</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Shutdown</span><kbd>M + Shift + esc</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Toggle caffeine mode</span><kbd>M + c</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Toggle visibility</span><kbd>M + f</kbd></div>
+        </div>
+        <div class="kb-section programs">
+            <div class="kb-section-title">Programs & Launchers</div>
+            <div class="kb-row"><span class="kb-desc">Launch Wezterm</span><kbd>M + return</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Launch Rofi</span><kbd>M + space</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Rofi (.proxy_state)</span><kbd>M + Shift + space</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Launch Yazi</span><kbd>M + z</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Open nmtui</span><kbd>M + n</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Open Blueman</span><kbd>M + b</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Emoji Selector</span><kbd>M + .</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Selective flameshot</span><kbd>M + s</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Fullscreen flameshot</span><kbd>M + S</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Open clipboard</span><kbd>M + v</kbd></div>
+        </div>
+        <div class="kb-section windows">
+            <div class="kb-section-title">Windows Management</div>
+            <div class="kb-row"><span class="kb-desc">Kill focused window</span><kbd>M + Shift + c</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Cycle up focus</span><kbd>M + j</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Swap window up</span><kbd>M + J</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Cycle down focus</span><kbd>M + k</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Swap window down</span><kbd>M + K</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Focus master</span><kbd>M + m</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Focus previous</span><kbd>M + Shift + Tab</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Swap with master</span><kbd>M + Shift + return</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Toggle sticky window</span><kbd>M + `</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Shrink height</span><kbd>M + u</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Expand height</span><kbd>M + i</kbd></div>
+        </div>
+        <div class="kb-section layout">
+            <div class="kb-section-title">Layout Control</div>
+            <div class="kb-row"><span class="kb-desc">Change Layout</span><kbd>M + Tab</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Force tile window</span><kbd>M + t</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Reset workspace layout</span><kbd>M + d</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Shrink master width</span><kbd>M + h</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Expand master width</span><kbd>M + l</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Increase masters</span><kbd>M + [</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Decrease masters</span><kbd>M + ]</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Zoom out</span><kbd>M + -</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Zoom in</span><kbd>M + =</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Horizontal shrink</span><kbd>M + Shift + -</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Horizontal expand</span><kbd>M + Shift + =</kbd></div>
+        </div>
+        <div class="kb-section workspaces">
+            <div class="kb-section-title">Workspaces</div>
+            <div class="kb-row"><span class="kb-desc">Go to workspace</span><kbd>M + [num]</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Move window to WS</span><kbd>M + S + [num]</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Go to empty WS</span><kbd>M + ,</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Previous workspace</span><kbd>M + ←</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Next workspace</span><kbd>M + →</kbd></div>
+        </div>
+        <div class="kb-section xinerama">
+            <div class="kb-section-title">Xinerama</div>
+            <div class="kb-row"><span class="kb-desc">Focus Monitor 1</span><kbd>M + w</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Move window to Mon 1</span><kbd>M + W</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Focus Monitor 2</span><kbd>M + e</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Move window to Mon 2</span><kbd>M + E</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Focus Monitor 3</span><kbd>M + r</kbd></div>
+            <div class="kb-row"><span class="kb-desc">Move window to Mon 3</span><kbd>M + R</kbd></div>
+        </div>
+    </div>
+</div>
