@@ -4,7 +4,7 @@ local act = wezterm.action
 
 -- 1. Font and Theme
 config.font = wezterm.font 'JetBrainsMono Nerd Font'
-config.font_size = 11.0
+config.font_size = 10.0
 config.color_scheme = 'Catppuccin Mocha'
 
 -- 2. Window Decorations (Removes the bulky title bar)
@@ -27,7 +27,7 @@ config.adjust_window_size_when_changing_font_size = false
 config.enable_wayland = false
 config.selection_word_boundary = " \t\n{}[]()\"'`"
 
--- 5. Shortcut Configurations
+-- 6. Shortcut Configurations
 config.keys = {
   -- Map Ctrl+Backspace to Ctrl+w (backward kill word)
   {

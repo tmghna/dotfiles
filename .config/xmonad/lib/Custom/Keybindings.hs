@@ -17,15 +17,13 @@ myKeys =
     [ ("M-<Return>", spawn myTerminal)                                        -- Super + Enter: Wezterm
     , ("M-<Space>", spawn "rofi -show combi")                                 -- Super + Space:  Rofi
     , ("M-S-<Space>", spawn "~/.local/bin/rofi-proxy")                        -- Super + S + Space: Rofi in proxy
-    , ("M-.", spawn "rofi -modi emoji -show emoji -emoji-mode insert -theme ~/.config/rofi/emoji.rasi -emoji-format '{emoji}'")      -- Super + . Rofi emoji picker
+    , ("M-/", spawn "rofi -modi emoji -show emoji -emoji-mode insert -theme ~/.config/rofi/emoji.rasi -emoji-format '{emoji}'")      -- Super + / Rofi emoji picker
     , ("M-v", spawn "~/.config/xmonad/scripts/smart_paste.sh")                -- Super + v: Clipbaord History Manager
     , ("M-z", spawn "wezterm start -- yazi ~")                                -- Launch yazi in new terminal at home
     , ("M-<Tab>", sendMessage NextLayout)                                     -- Move Layout cycling to Super + Tab
     , ("M-<Escape>", spawn "/home/tdey/.config/xmonad/scripts/lock_screen.sh")-- Super + Esc: Lock screen
     , ("M-S-<Escape>", spawn "systemctl poweroff")                            -- Super + Shift + Esc: Shutdown
     , ("M-n", spawn "wezterm start --class nmtui-floating -- nmtui")          -- Launch nmtui
-    , ("M-<R>", nextWS)                                                       -- Next Workspace
-    , ("M-<L>",  prevWS)                                                      -- Previous Workspace
     , ("M--", withFocused (keysResizeWindow (-40, -40) (1/2, 1/2)))
     , ("M-=", withFocused (keysResizeWindow (40, 40) (1/2, 1/2)))
     , ("M-S-<Return>", windows W.swapMaster)
@@ -34,7 +32,7 @@ myKeys =
     , ("M-S--", withFocused (keysResizeWindow (-40, 0) (1/2, 1/2)))           -- Squeeze horizontally
     , ("M-S-=", withFocused (keysResizeWindow (40, 0) (1/2, 1/2)))            -- Expand horizontally
     , ("M-d", asks (layoutHook . config) >>= setLayout)                       -- Reset current workspace layout to default
-    , ("M-,", spawn "~/.config/xmonad/scripts/toggle_wallpaper.sh")           -- Toggle Wallpaper View
+    , ("M-;", spawn "~/.config/xmonad/scripts/toggle_wallpaper.sh")           -- Toggle Wallpaper View
     , ("M-`", toggleSticky)                                                   -- Sticky Window
     , ("M-S-/", spawn "brave --app=file:///home/tdey/.config/xmonad/xmonad_keybindings.html")
 
@@ -43,6 +41,10 @@ myKeys =
     , ("M-k", windows W.focusDown)
     , ("M-S-j", windows W.swapUp)
     , ("M-S-k", windows W.swapDown)
+    , ("M-.", nextWS)                                                       -- Next Workspace
+    , ("M-,",  prevWS)                                                      -- Previous Workspace
+    , ("M-S-.", shiftToNext)                                                  -- Shift window to Next
+    , ("M-S-,", shiftToPrev)                                                  -- Shift window to Previous
 
     -- Volume Controls (Using WirePlumber)
     , ("<XF86AudioRaiseVolume>", spawn "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+")
