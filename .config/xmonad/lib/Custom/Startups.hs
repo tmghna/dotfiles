@@ -15,4 +15,4 @@ myStartupHook = do
     spawnOnce "touchegg"
     spawnOnce "xss-lock --transfer-sleep-lock -- /home/tdey/.config/xmonad/scripts/lock_screen.sh"
     spawnOnce "xautolock -time 5 -locker /home/tdey/.config/xmonad/scripts/lock_screen.sh"
-    spawnOnce "udiskie -t &"
+    spawnOnce "udiskie -t"
