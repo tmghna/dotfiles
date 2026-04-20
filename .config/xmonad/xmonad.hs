@@ -68,6 +68,7 @@ myManageHook = composeAll
     , className =? "nmtui-floating"            --> doRectFloat (W.RationalRect 0.02 0.50 0.60 0.48)
     , className =? "Brave-browser" <&&> appName =? "home_tdey_.config_xmonad_xmonad_keybindings.html" --> doCenterFloat
     , className =? "matplotlib"                --> doCenterFloat
+    , className =? "Qalculate-gtk"             --> doCenterFloat
     ]
 
 myConfig = def

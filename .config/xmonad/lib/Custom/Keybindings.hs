@@ -75,4 +75,7 @@ myKeys =
 
     -- Airplane Mode Toggle (F8 / Factory Key)
     , ("<XF86RFKill>", spawn "/home/tdey/.config/xmonad/scripts/airplane_toggle.sh")
+
+    -- Calculator Launcher
+    , ("<XF86Calculator>", spawn "qalculate-gtk")
     ]
