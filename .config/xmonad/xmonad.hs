@@ -35,7 +35,7 @@ main :: IO ()
 -- Wrap myConfig in 'docks' so Xmonad actively listens for Xmobar
 main = xmonad =<< statusBar "xmobar" myXmobarPP toggleStrutsKey (ewmh $ docks myConfig)
 
--- This adds a shortcut (Super + b) to toggle the bar on and off if you want full screen
+-- This adds a shortcut (Super + f) to toggle the bar on and off if you want full screen
 toggleStrutsKey XConfig { modMask = m } = (m, xK_f)
 
 -- This entirely customizes the %StdinReader% output format
