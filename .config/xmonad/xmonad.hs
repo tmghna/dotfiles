@@ -69,6 +69,7 @@ myManageHook = composeAll
     , className =? "Brave-browser" <&&> appName =? "home_tdey_.config_xmonad_xmonad_keybindings.html" --> doCenterFloat
     , className =? "matplotlib"                --> doCenterFloat
     , className =? "Qalculate-gtk"             --> doCenterFloat
+    , className =? "Spotify"                   --> doCenterFloat
     ]
 
 myConfig = def
