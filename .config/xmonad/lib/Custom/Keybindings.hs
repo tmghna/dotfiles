@@ -74,7 +74,7 @@ myKeys =
     , ("M-i", sendMessage MirrorShrink)        -- Shrink focused window vertically
 
     -- Airplane Mode Toggle (F8 / Factory Key)
-    , ("<XF86RFKill>", spawn "/home/tdey/.config/xmonad/scripts/airplane_toggle.sh")
+    , ("<XF86RFKill>", spawn "~/.config/xmonad/scripts/airplane_toggle.sh")
 
     -- Calculator Launcher
     , ("<XF86Calculator>", spawn "qalculate-gtk")
