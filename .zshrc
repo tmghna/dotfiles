@@ -40,3 +40,5 @@ export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
 
 # Load persistent proxy state if it exists
 [[ -f ~/.proxy_state ]] && source ~/.proxy_state
+
+export TERMINAL="wezterm"
