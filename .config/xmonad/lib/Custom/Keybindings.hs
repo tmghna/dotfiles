@@ -10,6 +10,7 @@ import XMonad.Actions.CycleWS
 -- Import for floating window control
 import XMonad.Actions.FloatKeys
 import qualified XMonad.StackSet as W
+import XMonad.Actions.WithAll (sinkAll)
 
 -- This defines the list of keybindings to be added
 myKeys :: [(String, X ())]
@@ -35,6 +36,7 @@ myKeys =
     , ("M-;", spawn "~/.config/xmonad/scripts/toggle_wallpaper.sh")           -- Toggle Wallpaper View
     , ("M-`", toggleSticky)                                                   -- Sticky Window
     , ("M-S-/", spawn "brave --app=file:///home/tdey/.config/xmonad/xmonad_keybindings.html")
+    , ("M-S-t", sinkAll)                                                      -- Force tile all windows
 
     -- Cycle and Shift windows
     , ("M-j", windows W.focusUp)
