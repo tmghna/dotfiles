@@ -16,4 +16,6 @@ myGaps = spacingRaw False (Border 2 2 2 2) True (Border 6 6 6 6) True
 -- 3/100 = percentage to resize horizontally
 -- 1/2 = initial split size
 -- [] = slave vertical fractions
-myLayouts = myGaps (ResizableTall 1 (3/100) (1/2) []) ||| myGaps Full
+myLayouts = myGaps (ResizableTall 1 (3/100) (1/2) [])
+            ||| myGaps (Mirror (ResizableTall 1 (3/100) (1/2) []))
+            ||| myGaps Full

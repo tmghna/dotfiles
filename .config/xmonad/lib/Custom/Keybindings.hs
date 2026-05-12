@@ -11,6 +11,8 @@ import XMonad.Actions.CycleWS
 import XMonad.Actions.FloatKeys
 import qualified XMonad.StackSet as W
 import XMonad.Actions.WithAll (sinkAll)
+-- Import for Mode change config
+import Control.Monad (replicateM_)
 
 -- This defines the list of keybindings to be added
 myKeys :: [(String, X ())]
@@ -22,6 +24,7 @@ myKeys =
     , ("M-v", spawn "~/.config/xmonad/scripts/smart_paste.sh")                -- Super + v: Clipbaord History Manager
     , ("M-z", spawn "wezterm start -- yazi ~")                                -- Launch yazi in new terminal at home
     , ("M-<Tab>", sendMessage NextLayout)                                     -- Move Layout cycling to Super + Tab
+    , ("M-S-<Tab>", replicateM_ 2 (sendMessage NextLayout))                   -- Cycle layouts backwards (Wrap around)
     , ("M-<Escape>", spawn "/home/tdey/.config/xmonad/scripts/lock_screen.sh")-- Super + Esc: Lock screen
     , ("M-S-<Escape>", spawn "systemctl poweroff")                            -- Super + Shift + Esc: Shutdown
     , ("M-n", spawn "wezterm start --class nmtui-floating -- nmtui")          -- Launch nmtui

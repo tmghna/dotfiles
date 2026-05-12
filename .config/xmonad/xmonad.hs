@@ -53,6 +53,7 @@ myXmobarPP = xmobarPP
     , ppHiddenNoWindows = xmobarColor "#45475a" "" . const "\xf0130 "
     , ppLayout          = xmobarColor "#f9e2af" "" . \x -> case x of
         "Spacing ResizableTall" -> " Tiled"
+        "Spacing Mirror ResizableTall" -> " Mirror"
         "Spacing Full"          -> " Full"
         "Spacing Tall"          -> " Tall"  -- Fallback just in case
         _                       -> x
