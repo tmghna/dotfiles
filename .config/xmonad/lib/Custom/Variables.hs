@@ -41,7 +41,6 @@ toggleSticky = withFocused $ \w -> do
             killAllOtherCopies -- Unlocks: removes it from all other workspaces
             setFocusBorder w myFocusedBorderColor -- Reset to Mauve
         else do
-            windows (W.sink w)  -- Unfloats: forces it to tile (master or slave)
             windows copyToAll   -- Locks: copies it to every workspace
             setFocusBorder w myLockedBorderColor  -- Set to Red
 
