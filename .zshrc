@@ -35,6 +35,8 @@ alias pxstatus="echo \"HTTP Proxy: \${http_proxy:-OFF} | HTTPS Proxy: \${https_p
 
 alias devmode="source ~/src/.virtualenvs/shared_env/bin/activate"
 alias fixwarp="sudo systemctl restart warp-svc"
+alias hotspot5G="sudo create_ap --freq-band 5 wlan0 CloudflareWARP SecureAP strongman"
+alias hotspot="sudo create_ap -c 6 wlan0 CloudflareWARP SecureAP strongman"
 
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
 
