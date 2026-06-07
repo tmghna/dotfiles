@@ -5,17 +5,17 @@
 PRIVACY_STATUS=$(v4l2-ctl --get-ctrl=privacy 2>/dev/null)
 
 if [[ "$PRIVACY_STATUS" == *"privacy: 1"* ]]; then
-    # Shutter is CLOSED (Red Strikethrough)
-    echo "<fc=#f38ba8>󰄀</fc>"
+  # Shutter is CLOSED (Red Strikethrough)
+  echo "<fc=#f38ba8><fn=1>󰄀</fn></fc>"
 elif [[ "$PRIVACY_STATUS" == *"privacy: 0"* ]]; then
-    # Shutter is OPEN (Green Icon)
-    echo "<fc=#f9e2af>󰄀</fc>"
+  # Shutter is OPEN (Green Icon)
+  echo "<fc=#f9e2af><fn=1>󰄀</fn></fc>"
 else
-    # Fallback: If the camera doesn't support the privacy flag, 
-    # fallback to checking if the device file exists at all.
-    if ls /dev/video* 1> /dev/null 2>&1; then
-        echo "<fc=#f9e2af>󰄀</fc>"
-    else
-        echo "<fc=#f38ba8>󰄀</fc>"
-    fi
+  # Fallback: If the camera doesn't support the privacy flag,
+  # fallback to checking if the device file exists at all.
+  if ls /dev/video* 1>/dev/null 2>&1; then
+    echo "<fc=#f9e2af><fn=1>󰄀</fn></fc>"
+  else
+    echo "<fc=#f38ba8><fn=1>󰄀</fn></fc>"
+  fi
 fi

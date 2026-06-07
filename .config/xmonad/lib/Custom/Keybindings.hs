@@ -28,13 +28,13 @@ myKeys =
     , ("M-<Escape>", spawn "/home/tdey/.config/xmonad/scripts/lock_screen.sh")-- Super + Esc: Lock screen
     , ("M-S-<Escape>", spawn "systemctl poweroff")                            -- Super + Shift + Esc: Shutdown
     , ("M-n", spawn "wezterm start --class nmtui-floating -- nmtui")          -- Launch nmtui
-    , ("M--", withFocused (keysResizeWindow (-40, -40) (1/2, 1/2)))
-    , ("M-=", withFocused (keysResizeWindow (40, 40) (1/2, 1/2)))
+    , ("M--", withFocused (keysResizeWindow (-20, -20) (1/2, 1/2)))
+    , ("M-=", withFocused (keysResizeWindow (20, 20) (1/2, 1/2)))
     , ("M-S-<Return>", windows W.swapMaster)
     , ("M-b", spawn "blueman-manager")
     , ("M-c", spawn "/home/tdey/.config/xmonad/scripts/caffeine_toggle.sh")
-    , ("M-S--", withFocused (keysResizeWindow (-40, 0) (1/2, 1/2)))           -- Squeeze horizontally
-    , ("M-S-=", withFocused (keysResizeWindow (40, 0) (1/2, 1/2)))            -- Expand horizontally
+    , ("M-S--", withFocused (keysResizeWindow (-20, 0) (1/2, 1/2)))           -- Squeeze horizontally
+    , ("M-S-=", withFocused (keysResizeWindow (20, 0) (1/2, 1/2)))            -- Expand horizontally
     , ("M-d", asks (layoutHook . config) >>= setLayout)                       -- Reset current workspace layout to default
     , ("M-;", spawn "~/.config/xmonad/scripts/toggle_wallpaper.sh")           -- Toggle Wallpaper View
     , ("M-`", toggleSticky)                                                   -- Sticky Window

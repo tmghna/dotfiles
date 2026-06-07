@@ -44,18 +44,18 @@ myXmobarPP = xmobarPP
     { ppOrder           = \(ws:l:t:ex) -> [l ++ " " ++ unwords ex, ws, t]
     , ppSep             = "  " 
     -- \xf012f is the Nerd Font hex for the filled dot (Mauve)
-    , ppCurrent         = xmobarColor "#cba6f7" "" . const "\xf012f " 
+    , ppCurrent         = xmobarColor "#cba6f7" "" . const "<fn=2>\xf012f</fn>" 
     -- \xf0130 is the Nerd Font hex for the hollow dot (Lavender/Subtext)
-    , ppVisible         = xmobarColor "#bac2de" "" . const "\xf0130 "
+    , ppVisible         = xmobarColor "#bac2de" "" . const "<fn=2>\xf0130</fn>"
     -- \xf0130 for hidden workspaces with windows (Surface2)
-    , ppHidden          = xmobarColor "#c2b9ec" "" . const "\xf0130 "
+    , ppHidden          = xmobarColor "#c2b9ec" "" . const "<fn=2>\xf0130</fn>"
     -- Empty workspaces (Surface0)
-    , ppHiddenNoWindows = xmobarColor "#45475a" "" . const "\xf0130 "
+    , ppHiddenNoWindows = xmobarColor "#45475a" "" . const "<fn=2>\xf0130</fn>"
     , ppLayout          = xmobarColor "#f9e2af" "" . \x -> case x of
-        "Spacing ResizableTall" -> " Tiled"
-        "Spacing Mirror ResizableTall" -> " Mirror"
-        "Spacing Full"          -> " Full"
-        "Spacing Tall"          -> " Tall"  -- Fallback just in case
+        "Spacing ResizableTall" -> "Tiled "
+        "Spacing Mirror ResizableTall" -> "Mirror"
+        "Spacing Full"          -> "Filled"
+        "Spacing Tall"          -> "Tall"  -- Fallback just in case
         _                       -> x
     , ppTitle           = xmobarColor "#a6e3a1" "" . shorten 40
     , ppExtras          = [fmap (fmap $ xmobarColor "#eba0ac" "") windowCount] -- NEW: Add the window count to the extras list

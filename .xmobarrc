@@ -1,25 +1,23 @@
 Config {
     -- Increase size slightly for the 1080p display and use Nerd Font exclusively
-    font = "xft:JetBrainsMono Nerd Font:style=Bold:size=11:antialias=true"
+    font = "JetBrainsMono Nerd Font Mono Bold 11"
     , additionalFonts = [ 
-         "xft:JetBrainsMono Nerd Font:size=14"     -- <fn=1> for larger icons
-       , "xft:JetBrainsMono Nerd Font:size=24"     -- <fn=2> Vertical Stretcher
+         "JetBrainsMono Nerd Font Mono 14"   -- wrap around <fn=1> </fn>
+       , "JetBrainsMono Nerd Font Mono 18"   -- wrap around <fn=2> </fn>
     ]
     , bgColor = "#11111b" -- Catppuccin Mocha Base
     , fgColor = "#cdd6f4" -- Catppuccin Mocha Text
-    , position = Static { xpos = 10, ypos = 3, width = 1900, height = 24 }    
+    , position = Static { xpos = 10, ypos = 0, width = 1900, height = 23 }    
     , alpha = 217         -- Matches your Rofi 85% opacity (optional, requires a compositor)
     , sepChar = "%"
     , alignSep = "}{"
        
        -- The Layout Template
-       , template = "<fc=#cba6f7>  </fc> %StdinReader% }{ <fc=#cba6f7> </fc> %cpu% <fc=#585b70>󰇙</fc> <fc=#89b4fa> </fc> %memory% <fc=#585b70>󰇙</fc> %temp% <fc=#585b70>󰇙</fc> %wifi_ssid% %dynnetwork%<fc=#585b70>󰇙</fc> <fc=#f9e2af>󰃠 </fc>%bright% <fc=#585b70>󰇙</fc> %speaker% <fc=#585b70>󰇙</fc> %mic% %bluetooth% %camera% <fc=#585b70>󰇙</fc> %battery% <fc=#585b70>󰇙</fc>%caffeine% <fc=#1e1e2e,#cba6f7> %date% </fc>"
-       
+       , template = "<fc=#cba6f7><fn=2>  </fn></fc> %StdinReader% }{ <fc=#89b4fa><fn=1></fn></fc> %memory% <fc=#585b70>󰇙</fc> %temp% <fc=#585b70>󰇙</fc> %wifi_ssid% <fc=#585b70>󰇙</fc> <fc=#f9e2af><fn=2>󰃠</fn> </fc>%bright% <fc=#585b70>󰇙</fc> %speaker% <fc=#585b70>󰇙</fc> %mic% %bluetooth% %camera% <fc=#585b70>󰇙</fc> %battery% <fc=#585b70>󰇙</fc>%caffeine% <fc=#1e1e2e,#cba6f7> %date% </fc>"
        , commands =
             [ 
-              -- CPU & Memory
-             Run Cpu ["-t", "<total>%"] 50
-            , Run Memory ["-t", "<usedratio>%"] 20
+              -- Memory
+            Run Memory ["-t", "<usedratio>%"] 20
 
               -- Temperature
             , Run Com "/home/tdey/.config/xmobar/temp.sh" [] "temp" 20
@@ -41,10 +39,10 @@ Config {
             , Run Com "/home/tdey/.config/xmobar/wifi_ssid.sh" [] "wifi_ssid" 20
             
               -- Network Speeds
-            , Run DynNetwork 
-                [ "-t", "<fc=#89b4fa> 󰇚</fc> <rx> <fc=#fab387> 󰕒</fc> <tx> "
-                , "-S", "True"
-                ] 20
+            --, Run DynNetwork 
+            --    [ "-t", "<fc=#89b4fa> 󰇚</fc> <rx> <fc=#fab387> 󰕒</fc> <tx> "
+            --    , "-S", "True"
+            --    ] 20
  
               -- Battery (REPLACE "BAT1" IF IT IS DIFFERENT)
             , Run BatteryP ["BAT1"]
@@ -56,10 +54,10 @@ Config {
                 , "-l", "#f38ba8"                 -- Low: Red
                 , "--"
                 
-                , "-O", "<fc=#89b4fa><fn=1></fn> </fc>"    
-                , "-i", "<fc=#a6e3a1><fn=1></fn> </fc>"       
+                , "-O", "<fc=#89b4fa><fn=1></fn></fc>"    
+                , "-i", "<fc=#a6e3a1><fn=1></fn></fc>"       
                 
-                , "-o", "<fn=1></fn> "
+                , "-o", "<fn=1></fn>"
                 ] 20
 
               -- Caffeine Mode

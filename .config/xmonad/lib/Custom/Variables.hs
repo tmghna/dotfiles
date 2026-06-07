@@ -22,7 +22,7 @@ myNormalBorderColor :: String
 myNormalBorderColor = "#1e1e2e"     -- Muted dark blue/grey for inactive windows
 
 myFocusedBorderColor :: String
-myFocusedBorderColor = "#cba6f7"    -- Mauve glow for the active window
+myFocusedBorderColor = "#f9d47b"    -- #cba6f7 Mauve glow for the active window
 
 myLockedBorderColor :: String
 myLockedBorderColor = "#f38ba8"     -- Catppuccin Red for locked window
