@@ -44,3 +44,4 @@ export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
 [[ -f ~/.proxy_state ]] && source ~/.proxy_state
 
 export TERMINAL="wezterm"
+export EDITOR=nvim
