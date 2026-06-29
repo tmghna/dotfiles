@@ -24,8 +24,8 @@ prepend_rules = [
     { mime = "audio/*", use = "audio_player" },
     { mime = "video/*", use = "video_player" },
     { mime = "application/pdf", use = "sioyek" },
-    { name = "*.xlsx", use = "excel" },
-    { name = "*.xls",  use = "excel" },
-    { name = "*.csv",  use = "excel"},
-    { name = "*.history", use = "neovim" }
+    { mime = "*.xlsx", use = "excel" },
+    { mime = "*.xls",  use = "excel" },
+    { mime = "*.csv",  use = "excel"},
+    { mime = "*.history", use = "neovim" }
 ]

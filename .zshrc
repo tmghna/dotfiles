@@ -45,3 +45,10 @@ export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
 
 export TERMINAL="wezterm"
 export EDITOR=nvim
+
+# xTB and crest
+export PATH="$HOME/opt/xtb-dist/bin:$PATH"
+export PATH="$HOME/opt/crest:$PATH"
+export OMP_STACKSIZE=4G
+export OMP_NUM_THREADS=8,1
+export OMP_MAX_ACTIVE_LEVELS=1
